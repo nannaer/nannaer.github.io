@@ -17,7 +17,7 @@
 <meta property="og:image" content="https://yygh-testosscjf.oss-cn-beijing.aliyuncs.com/IMG_20230417_150820_edit_5094932810995.jpg">
 <meta property="og:image" content="https://yygh-testosscjf.oss-cn-beijing.aliyuncs.com/IMG_20230417_150835.jpg">
 <meta property="article:published_time" content="2023-04-17T07:15:14.306Z">
-<meta property="article:modified_time" content="2023-04-18T07:04:18.363Z">
+<meta property="article:modified_time" content="2023-04-19T00:48:33.531Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://yygh-testosscjf.oss-cn-beijing.aliyuncs.com/IMG_20230417_150820_edit_5094932810995.jpg">
@@ -177,11 +177,35 @@
 <p>解决方案：<strong>引入虚拟节点</strong>，一个物理节点不再只对应哈希环上一个点，而是对应多个节点。虚拟节点越多，数据分布越均匀。</p>
 <p>如果系统中有不同性能的机器，虚拟节点也很有用。<strong>例如，系统中有一台机器的性能是其他机器的两倍，那么我们可以让这台机器映射出两倍于其他机器的节点数，让它来承担更多的负担。</strong></p>
 <p>不过，在不额外存储数据的情况下，一致性哈希仍然无法高效地进行范围查询，任何范围查询都会发送到多个节点上。</p>
+<p>3.1.2 分区的挑战</p>
+<p>在一个<strong>垂直分区</strong>的数据集中，<strong>将不同表的数据组合起来的查询（join）会非常低效</strong>，因为这些请求可能需要访问多个节点的数据。这种情况在水平分区的系统中可以避免，因为每一行的所有数据都位于同一个节点中，但是，<strong>对于需要查询许多行的范围查询</strong>来说，可能这些行位于不同的节点，<strong>请求也会访问多个节点</strong>。</p>
+<p><strong>3.2 复制</strong></p>
+<p>为了提高可用性，除了分区还需要复制。复制是将同一份数据冗余存储在多个节点上，节点间通过网络来同步数据，使之保持一致。一个存储了复制数据的节点称为副本。复制可以和分区一起使用。</p>
+<p><strong>复制的主要好处有：</strong></p>
+<p>（1）<strong>增强数据的可用性和安全性</strong>。</p>
+<p>（2）<strong>减少往返时间</strong>。例如通过复制技术把数据存储到各个数据中心，可以将全国各地甚至全球不同用户的请求重定向到离用户为止更近的副本，减少往返时间，提升响应速度。</p>
+<p>（3）<strong>增加吞吐量</strong>。一台服务器能够处理的请求数存在物理上限，这种情况下复制出同样的几台服务器，可以提供更多处理读写请求的机器，系统的处理性能能够成本增长。</p>
+<p>理想情况下，<strong>复制应该对客户端来说无感知，即营造出一种每份数据只有一个副本的假象</strong>。要实现理想的情况总不太容易，网络延迟总会“捣鬼”。有时为了保障系统的性能，就需要放弃一些其他的属性，甚至允许在特定的条件下，返回一些过期的，反直觉的数据。</p>
+<p>下面我们讨论三种常用复制类型：（1）<strong>单主复制</strong>（2）<strong>多主复制</strong>（3）<strong>无主复制</strong></p>
+<p><strong>3.2.1 单主复制</strong></p>
+<p>系统中一个副本为主节点，客户端的写请求必须发送到主节点；其余的副本称为从节点，从节点只能处理读请求，并从主节点同步最新的数据。</p>
+<p>主节点收到写请求时，除了将数据写入本地存储，还要负责将这次数据变更同步给所有从节点，以确保所有的副本保持一致。数据变更同步具体是同步操作日志还是转发请求，不同系统有着不同的实现。</p>
+<p>根据系统以何种方式同步复制，又可将单主复制分为三类：同步复制，异步复制和半同步复制。</p>
+<p><strong>同步复制中的主节点执行完一个写请求后，必须等待所有从节点都执行完毕，并收到确认信息后，才可以回复客户端写入成功</strong>。</p>
+<p><strong>异步复制中主节点执行完写请求后，会立即将结果返回给客户端，无需等待其他副本是否写入完成</strong>。</p>
+<p><strong>半同步复制，主节点只需要等待至少一个从节点同步写操作并返回完成信息即可，不要等待所有的节点都完成。</strong></p>
+<p>总的来说，<strong>单主复制的主要优点</strong>有：</p>
+<ol>
+<li>简单易懂，易于实现</li>
+<li>仅在主节点执行并发写操作，能够保证操作的顺序，避免了还要考虑如何处理各个节点数据冲突这类复杂的情况，这个特性使得单主复制更容易支持事务类操作，分布式事务是非常消耗性能的</li>
+<li>对于大量读请求工作负载的系统，单主复制是可扩展的，可以通过增加多个从节点来提升读的性能</li>
+</ol>
+<p><strong>单主复制的主要缺点</strong>有：</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://nannaer.github.io/2023/04/17/%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F/" data-id="clglzu5om00002sv7e2wk2yum" class="article-share-link">Share</a>
+      <a data-url="https://nannaer.github.io/2023/04/17/%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F/" data-id="clgndeyeq0001bwv7cbt42av2" class="article-share-link">Share</a>
       
       
     </footer>
