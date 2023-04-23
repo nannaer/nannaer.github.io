@@ -7,12 +7,12 @@
   
   <title>Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="分布式系统（仅用于个人学习，笔记）1.1 认识分布式系统分布式系统有以下特点： （1）多进程。分布式系统中有多个进程并发运行 （2）不共享操作系统。通过网络通信传递消息来协作 （3）不共享时钟。所以很难只通过时间来定义两个事件的顺序 1.2 分布式系统的挑战1.2.1网络延迟问题分布式系统中的多个节点通过网络进行通信，但网络并不能保证数据什么时候到达，以及是否一定到达，有时网络甚至是不安全的。 例">
+  <meta name="description" content="分布式系统（仅用于个人学习，笔记）">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo">
 <meta property="og:url" content="https://nannaer.github.io/2023/04/17/%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="分布式系统（仅用于个人学习，笔记）1.1 认识分布式系统分布式系统有以下特点： （1）多进程。分布式系统中有多个进程并发运行 （2）不共享操作系统。通过网络通信传递消息来协作 （3）不共享时钟。所以很难只通过时间来定义两个事件的顺序 1.2 分布式系统的挑战1.2.1网络延迟问题分布式系统中的多个节点通过网络进行通信，但网络并不能保证数据什么时候到达，以及是否一定到达，有时网络甚至是不安全的。 例">
+<meta property="og:description" content="分布式系统（仅用于个人学习，笔记）">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://yygh-testosscjf.oss-cn-beijing.aliyuncs.com/IMG_20230417_150820_edit_5094932810995.jpg">
 <meta property="og:image" content="https://yygh-testosscjf.oss-cn-beijing.aliyuncs.com/IMG_20230417_150835.jpg">
@@ -21,7 +21,7 @@
 <meta property="og:image" content="https://yygh-testosscjf.oss-cn-beijing.aliyuncs.com/IMG_20230420_115317_edit_12556586318132.jpg">
 <meta property="og:image" content="https://yygh-testosscjf.oss-cn-beijing.aliyuncs.com/IMG_20230420_135954.jpg">
 <meta property="article:published_time" content="2023-04-17T07:15:14.306Z">
-<meta property="article:modified_time" content="2023-04-20T06:14:57.181Z">
+<meta property="article:modified_time" content="2023-04-23T15:27:56.136Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://yygh-testosscjf.oss-cn-beijing.aliyuncs.com/IMG_20230417_150820_edit_5094932810995.jpg">
@@ -85,7 +85,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="分布式系统（仅用于个人学习，笔记）"><a href="#分布式系统（仅用于个人学习，笔记）" class="headerlink" title="分布式系统（仅用于个人学习，笔记）"></a>分布式系统（仅用于个人学习，笔记）</h1><h2 id="1-1-认识分布式系统"><a href="#1-1-认识分布式系统" class="headerlink" title="1.1 认识分布式系统"></a>1.1 认识分布式系统</h2><p>分布式系统有以下特点：</p>
+        <h1 id="分布式系统（仅用于个人学习，笔记）"><a href="#分布式系统（仅用于个人学习，笔记）" class="headerlink" title="分布式系统（仅用于个人学习，笔记）"></a>分布式系统（仅用于个人学习，笔记）</h1><span id="more"></span>
+
+<h2 id="1-1-认识分布式系统"><a href="#1-1-认识分布式系统" class="headerlink" title="1.1 认识分布式系统"></a>1.1 认识分布式系统</h2><p>分布式系统有以下特点：</p>
 <p>（1）多进程。分布式系统中有多个进程并发运行</p>
 <p>（2）不共享操作系统。通过网络通信传递消息来协作</p>
 <p>（3）不共享时钟。所以很难只通过时间来定义两个事件的顺序</p>
@@ -311,11 +313,52 @@
 <p><strong>共识算法常用来实现多副本日志，共识算法使得每个副本对日志的值和顺序达成共识，每个节点都存储相同的日志副本，这样整个系统中的每个节点都能有一致的状态和输出。最终，这些节点看起来就像一个单独的，高可用的状态机。</strong></p>
 <p><strong>状态机复制可解决的分布式难题：</strong></p>
 <p><img src="https://yygh-testosscjf.oss-cn-beijing.aliyuncs.com/IMG_20230420_135954.jpg" alt="IMG_20230420_135954"></p>
+<h3 id="4-2-异步系统中的共识"><a href="#4-2-异步系统中的共识" class="headerlink" title="4.2 异步系统中的共识"></a>4.2 异步系统中的共识</h3><h4 id="4-2-1-FLP不可能定理"><a href="#4-2-1-FLP不可能定理" class="headerlink" title="4.2.1 FLP不可能定理"></a>4.2.1 <code>FLP</code>不可能定理</h4><p>在一个异步系统中，进程可以在任意时间返回响应，我们没有办法分辨一个进程是速度很慢还是已经崩溃。基于此，我们无法再在有限的时间内达成共识，这不满足终止性。</p>
+<p>如果我们用<code>CAP</code>定理来解读<code>FLP</code>不可能定理：<strong>对于一个完全异步的系统，我们不可能同时拥有安全性，活性和容错性。也许我们能实现一个满足安全性和活性的算法，但这个算法无法容忍故障；或者找到满足一个容错性和安全性的算法，但无法在有限的时间内达成共识。</strong></p>
+<p><strong>安全性</strong>意味着所有正确的进程都认同一个值，<strong>活性</strong>意味着分布式系统最终会认同某一个值。</p>
+<p><code>FLP</code>不可能定理并不是说，共识算法在一般情况下是不可能实现的，相反，这种不可能的结果来自算法流程中最坏的结果：</p>
+<ol>
+<li><strong>一个完全异步的系统</strong></li>
+<li><strong>系统发生了故障</strong></li>
+<li><strong>不可能有一个具备安全性，活性和容错性的共识算法</strong></li>
+</ol>
+<p>针对这些最坏的情况可以找到一些方法尽可能绕过<code>FLP</code>不可能定理，从而满足大部分情况下都能达成共识，找到共识问题工程上的解。一般有三种办法来绕过<code>FLP</code>不可能定理：</p>
+<ol>
+<li><strong>故障屏蔽</strong></li>
+<li><strong>使用故障检测器</strong></li>
+<li><strong>使用随机性算法</strong></li>
+</ol>
+<h4 id="4-2-2-故障屏蔽"><a href="#4-2-2-故障屏蔽" class="headerlink" title="4.2.2 故障屏蔽"></a>4.2.2 故障屏蔽</h4><p>将异步系统转换为同步系统，故障屏蔽就是第一种转换方法。故障屏蔽假设故障的进程最终会被恢复，并找到一种重新加入分布式系统的方式。如果没有收到来自某个进程的消息，就一直等待，直到收到预期的消息。</p>
+<p><strong>常见的一种方法是，如果一个进程崩溃，那么它会被重启，进程在持久化存储中保留了足够多的信息，以便在崩溃和重启时能够利用这些数据继续工作。换句话说，故障的进程也能够像正确的进程一样工作，只是有时候需要很长时间来执行一个恢复处理。</strong></p>
+<h4 id="4-2-3-利用故障检测器"><a href="#4-2-3-利用故障检测器" class="headerlink" title="4.2.3 利用故障检测器"></a>4.2.3 利用故障检测器</h4><p>一种最常见的故障检测器是超时故障检测器，即如果进程在一定时间内没有响应，那么即使该进程并没有发生故障，我们依然认为该进程已经失效。</p>
+<h4 id="4-2-4-使用随机性算法"><a href="#4-2-4-使用随机性算法" class="headerlink" title="4.2.4 使用随机性算法"></a>4.2.4 使用随机性算法</h4><p>随机算法的输出不仅仅取决于外部输出，还取决于执行过程的随机概率。</p>
+<h3 id="4-3-同步系统中的共识"><a href="#4-3-同步系统中的共识" class="headerlink" title="4.3 同步系统中的共识"></a>4.3 同步系统中的共识</h3><p>基于此，大多数适用于企业生产环境的共识算法，都依赖于部分同步的假设。</p>
+<p>共识算法分为<code>非拜占庭容错的共识算法</code>和<code>拜占庭容错的共识算法</code>。许多企业级的分布式系统都运行在企业自己的数据中心，或者有保障的云服务上，这些应用在绝大多数时候都不需要考虑拜占庭容错。</p>
+<p>我们将重点讨论非拜占庭容错的<code>Paxos</code>算法和<code>Raft</code>算法，以及拜占庭容错的<code>PBFT</code>算法。</p>
+<h3 id="4-4-Paxos"><a href="#4-4-Paxos" class="headerlink" title="4.4 Paxos"></a>4.4 <code>Paxos</code></h3><h4 id="4-4-1-基本概念"><a href="#4-4-1-基本概念" class="headerlink" title="4.4.1 基本概念"></a>4.4.1 基本概念</h4><p>议员是各个节点，制定的法律就是系统的各个状态，每个节点都可能提出提案（<code>Proposal</code>），<code>Paxos</code>用提案来推动整个算法，使系统决议出同一个提案，提案包括提案编号（<code>Proposal Number</code>）和提案值（<code>Proposal Value</code>）。</p>
+<p>如果集群中超过半数的节点同意接受该提案，那么对该提案的共识达成，称该提案被批准（<code>Chosen</code>），也叫被选定。注意，在基本的<code>Paxos</code>算法中，一旦某个提案被批准，提议者都不许将该值作为后续提案值。</p>
+<p><code>Paxos</code>算法将分布式系统中的节点分为以下几种角色，具体编码实现时，一个服务器可以同时运行多个进程，扮演一个或多个角色，这不会影响协议的正确性。<code>Paxos</code>算法的角色分为：</p>
+<p><strong>客户端</strong>：客户端向分布式系统发送一个请求，并等待响应。例如，对于一个分布式数据库，客户端执行写操作。</p>
+<p><strong>提议者</strong>（<strong>Proposer</strong>）：提议者受到客户端的请求，提出相关的提案，试图让接受者接受该提案，并在发生冲突时进行协调，推动算法运行。</p>
+<p><strong>接受者</strong>（<strong>Acceptor</strong>）：<strong>也叫投票者，即投票接受或拒绝提议者的提案，若超过半数的接受者接受提案，则该提案被批准</strong>。</p>
+<p>学习者（Learner）：学习者只能“学习”被批准的提案，不参与决议提案。一旦客户端的请求得到接受者的同意，学习者就可以学习到提案值，执行其中的请求操作并向客户端发送响应。为了提高系统的可用性，可以添加多个学习者。</p>
+<h4 id="4-4-2-问题描述"><a href="#4-4-2-问题描述" class="headerlink" title="4.4.2 问题描述"></a>4.4.2 问题描述</h4><p><em><strong><u>这一部分详见书，只浅浅记录一下</u></strong></em></p>
+<p>为了克服单点写入问题，于是有了基于Quorum的数据冗余机制，其思路就是不需要主节点，但需要写入一半以上的节点，并且满足R+M&gt;N。<strong>但采用这种方式，如果W=N，则无法容错；如果W&lt;N，则需要很多方法进行数据修复，只能获得一个最终一致性的系统。</strong></p>
+<p>如果我们要实现一个不需要后台进程修复数据，同时能够容忍故障的系统，那么每个节点该如何决定是接受某次写请求的值呢？</p>
+<p>首先，我们不能只有一个接受者，否则该接受者一旦宕机，则整个系统就无法继续工作。</p>
+<p>对于有多个接受者的系统，如果我们采用最直接的算法——假设每个节点只接受第一次收到的值，没有一个提案被超过半数的节点接受，没有提案被批准，算法无法种植，违反了4.2节提到的共识算法必须满足的<strong>活性</strong>。</p>
+<p>为了解决无法达成多数派条件的问题，我们放宽限制，允许一个节点接受多个不同的值，即收到的每一个提案都接受。这时新的问题出现了，集群中不止一个提案被批准，这就违反了<strong>安全性</strong>。</p>
+<p><em><strong><u>补充：安全性意味着所有正确的进程都认同同一个值，活性意味着分布式系统最终会认同某一个值。</u></strong></em></p>
+<p>基础的<code>PAXOS</code>算法强调：<strong>一旦一个值被批准了，未来的提案就必须提议相同的提案值。</strong></p>
+<p>基于此，就需要设计一个<strong>两阶段协议</strong>，<strong>将已经批准的值告知后续的请求，让后续的提案也使用相同的值</strong>。</p>
+<p>如图4-5所示这种情况，<code>S3</code>直接拒绝写请求B的值，因为<code>S3</code>已经批准了写请求A的值，就不会再接受别的值。这样的两阶段协议就可以保证集群只批准一个值，即达成共识。</p>
+<p>不过在使用这种方式时，我们需要知道提案的先后顺序，<strong>在单机系统中通常通过时间戳来比较提案的先后顺序，但在分布式系统中直接使用时间戳之类的物理时间可能并不准确</strong>，会存在各种各样的问题。因此，我们不能使用物理时间来判断提案的先后顺序。退而次之，**<code>Paxos</code>算法通过给每个提案附加一个唯一的编号，即提案编号。**</p>
+<p><strong>同时为了容错性，让进程在宕机恢复后仍然知道当前的提案编号，必须在本地持久化存储提案信息。</strong></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://nannaer.github.io/2023/04/17/%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F/" data-id="clgoqb13n0000yov7dnpv2gdl" class="article-share-link">Share</a>
+      <a data-url="https://nannaer.github.io/2023/04/17/%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F/" data-id="clgtkfwot0001qkv7g8x6d7mc" class="article-share-link">Share</a>
       
       
     </footer>
@@ -323,6 +366,15 @@
   
     
 <nav id="article-nav">
+  
+    <a href="/2023/04/20/%E5%86%85%E5%AD%98/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
   
   
     <a href="/2023/04/15/linuxPL/" id="article-nav-older" class="article-nav-link-wrap">
@@ -362,6 +414,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2023/04/20/%E5%86%85%E5%AD%98/">(no title)</a>
+          </li>
         
           <li>
             <a href="/2023/04/17/%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F/">(no title)</a>

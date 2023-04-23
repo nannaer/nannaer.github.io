@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="内存相关知识梳理（仅用于自己学习，侵删）">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="https://nannaer.github.io/2023/04/20/%E5%86%85%E5%AD%98/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="内存相关知识梳理（仅用于自己学习，侵删）">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://yygh-testosscjf.oss-cn-beijing.aliyuncs.com/1.png">
+<meta property="og:image" content="https://yygh-testosscjf.oss-cn-beijing.aliyuncs.com/01435fc6fd2f8fc71e0b98c2aa170e4.png">
+<meta property="og:image" content="https://yygh-testosscjf.oss-cn-beijing.aliyuncs.com/2.png">
+<meta property="og:image" content="https://yygh-testosscjf.oss-cn-beijing.aliyuncs.com/3.png">
+<meta property="og:image" content="https://yygh-testosscjf.oss-cn-beijing.aliyuncs.com/4.png">
+<meta property="og:image" content="https://yygh-testosscjf.oss-cn-beijing.aliyuncs.com/5.png">
+<meta property="og:image" content="https://yygh-testosscjf.oss-cn-beijing.aliyuncs.com/6.png">
+<meta property="og:image" content="https://yygh-testosscjf.oss-cn-beijing.aliyuncs.com/7.png">
+<meta property="og:image" content="https://yygh-testosscjf.oss-cn-beijing.aliyuncs.com/8.png">
+<meta property="og:image" content="https://yygh-testosscjf.oss-cn-beijing.aliyuncs.com/9.png">
+<meta property="og:image" content="https://yygh-testosscjf.oss-cn-beijing.aliyuncs.com/10.png">
+<meta property="og:image" content="https://yygh-testosscjf.oss-cn-beijing.aliyuncs.com/11.png">
+<meta property="article:published_time" content="2023-04-20T11:47:25.576Z">
+<meta property="article:modified_time" content="2023-04-23T15:28:17.849Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://yygh-testosscjf.oss-cn-beijing.aliyuncs.com/1.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://nannaer.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-内存" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2023/04/20/%E5%86%85%E5%AD%98/" class="article-date">
+  <time datetime="2023-04-20T11:47:25.576Z" itemprop="datePublished">2023-04-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="内存相关知识梳理（仅用于自己学习，侵删）"><a href="#内存相关知识梳理（仅用于自己学习，侵删）" class="headerlink" title="内存相关知识梳理（仅用于自己学习，侵删）"></a>内存相关知识梳理（仅用于自己学习，侵删）</h1><span id="more"></span>
+
+<h2 id="1-1-为什么你要系统学习计算机的内存知识？"><a href="#1-1-为什么你要系统学习计算机的内存知识？" class="headerlink" title="1.1 为什么你要系统学习计算机的内存知识？"></a>1.1 为什么你要系统学习计算机的内存知识？</h2><h3 id="1-1-1-为什么我建议你系统学习内存知识？"><a href="#1-1-1-为什么我建议你系统学习内存知识？" class="headerlink" title="1.1.1 为什么我建议你系统学习内存知识？"></a>1.1.1 为什么我建议你系统学习内存知识？</h3><p>那么，如何从一个应用开发程序员成长为资深的系统级程序员呢？</p>
+<p>绕不开的一点是，我们需要熟练掌握 CPU 的工作原理、操作系统原理、编译器原理、分布式软件、图形渲染和数据库原理。<strong>如果从这些庞大的知识体系中选择一条脉络的话，我还是会推荐以内存管理为线索去进行学习。</strong></p>
+<h3 id="1-1-2-为什么内存相关知识这么难学？"><a href="#1-1-2-为什么内存相关知识这么难学？" class="headerlink" title="1.1.2 为什么内存相关知识这么难学？"></a>1.1.2 为什么内存相关知识这么难学？</h3><p>想学好内存管理，必须要掌握 CPU 核设计知识、CPU 的段页式管理等知识，还要深入了解操作系统的内存管理模块、编译器的内存分配、并发锁、基础库的设计原理等等。整体的知识结构，你可以参考下面这张图：</p>
+<p><img src="https://yygh-testosscjf.oss-cn-beijing.aliyuncs.com/1.png" alt="1"></p>
+<h1 id="2-软件篇"><a href="#2-软件篇" class="headerlink" title="2 软件篇"></a>2 软件篇</h1><h3 id="2-1-为什么可用内存会远超物理内存"><a href="#2-1-为什么可用内存会远超物理内存" class="headerlink" title="2.1 为什么可用内存会远超物理内存"></a>2.1 为什么可用内存会远超物理内存</h3><p>我不知道在你刚接触计算机的时候，有没有这么一个疑问：“为什么我的机器上只有<code>2G</code>的物理内存，但我却可以使用比这大得多的内存，比如<code>256T</code>？它的核心是计算机中物理内存和虚拟内存的关系，尤其是虚拟内存的运行原理。</p>
+<p>不止如此，虚拟内存的运行原理还是打开计算机底层知识大门的钥匙，只有掌握好它，我们才能继续学习更多的底层原理。我们整个课程的目的，就是让你在遇到进程崩溃、内存访问错误、<code>SIGSEGV</code>、<code>double free</code>、内存泄漏等与内存相关的错误时，可以有的放矢，把握分析问题的方向。</p>
+<h4 id="2-1-1-物理内存"><a href="#2-1-1-物理内存" class="headerlink" title="2.1.1 物理内存"></a>2.1.1 物理内存</h4><p><strong>计算机的物理内存，简单说就是那根内存条</strong>，你的内存条是 <code>1G</code> 的，那计算机可用的物理内存就是 <code>1G</code>。这个内存条加电以后就可以存储数据了，<strong>CPU 运算的数据都是存储在主存里的</strong>。</p>
+<p>计算机的主存是由多个连续的单元组成的，每个单元称为一个字节，每个字节都有一个唯一的物理地址 (Physical Address， PA)，地址编码是从 0 开始的。所以，<strong>如果计算机上配有 <code>2G</code> 的内存，那么，这个计算机可用的物理内存空间就是 0 到 <code>2G</code>。</strong></p>
+<p>在早期的 CPU 指令集里，从内存中加载数据，向内存中写入数据都是直接操作物理内存的。也就是说每一个数据存储在内存的什么位置，都由程序员自己负责。</p>
+<p>但是直接访问物理内存，存在着一个很大的问题。</p>
+<p>因为这种模式下，必然要求程序员手动对数据进行布局，那么内存不够用怎么办呢？而且，每个进程分配多少内存、如何保证指令中访存地址的正确性，这些问题都全部要程序员来负责。</p>
+<p>在嵌入式设备中，手动管理内存的操作还是广泛存在的。这是因为在嵌入式开发中，往往没有进程的概念，也就是说整个应用独享全部内存，所以手动管理内存 才有可能性。在单进程的系统中，所有的物理资源都是单一进程在管理，直接管理物理内 存的操作复杂度还可以接受。</p>
+<p>对于我们普通软件工程师来说，系统中经常有多个进程，多进程之间的协同分配内存和释放内存就没那么容易了，这个时候我们要怎么办呢？幸好，<strong>局部性原理成了我们的救命稻草</strong>。***<u>基于局部性原理，CPU 为程序员虚拟化了一层内存，我们只需要与虚拟内存打交道就可以了。</u>***</p>
+<h4 id="2-1-2-局部性原理"><a href="#2-1-2-局部性原理" class="headerlink" title="2.1.2 局部性原理"></a>2.1.2 局部性原理</h4><p>在绝大多数程序的运行过程中，当前指令大概率都会引用最近访问过的数据。也就是说，程序的数据访问会表现出明显的倾向性。这种倾向性，我们就称之为<strong>局部性原理</strong> (Principle of locality)。</p>
+<p>我们可以从两个方面来理解局部性原理。第一个方面是<strong>时间局部性</strong>，也就是说被访问过一次的内存位置很可能在不远的将来会被再次访问；另一方面是<strong>空间局部性</strong>，说的是如果一个内存位置被引用过，那么它邻近的位置在不远的将来也有很大概率会被访问。</p>
+<p>基于这个原理，我们可以做出一个合理的推论：<strong>无论一个进程占用的内存资源有多大，在任一时刻，它需要的物理内存都是很少的</strong>。</p>
+<p>这就极大地解放了程序员的生产力。我们可以对比一下直接操作物理内存和操作虚拟内存，程序员要关心的事情都有哪些。</p>
+<p>在<strong>直接操作物理内存的情况下</strong>，你需要知道每一个变量的位置都安排在了哪里，而且还要注意和当前这个进程同时工作的进程，不能共用同一个地址，否则就会造成地址冲突。你想，一个项目中会有成百万的变量和函数，我们都要给它计算一个合理的位置，还不能与其他进程冲突，这是根本不可能完成的任务。</p>
+<p>而<strong>直接操作虚拟内存的情况</strong>就变得简单多了。你可以独占 <code>128T</code> 内存，任意地使用，系统上还运行了哪些进程已经与我们完全没有关系了。<strong>为变量和函数分配地址的活，我们交给链接器去自动安排就可以了</strong>。这一切都是因为虚拟内存能够提供内存地址空间的隔离，极大地扩展了可用空间。</p>
+<p>不过，任何一个虚拟内存里所存储的数据，还是保存在真实的物理内存里的。换句话说，<strong>任何虚拟内存最终都要映射到物理内存，但虚拟内存的大小又远超真实的物理内存的大小</strong>。</p>
+<h4 id="2-1-3-虚拟内存与程序局部性原理"><a href="#2-1-3-虚拟内存与程序局部性原理" class="headerlink" title="2.1.3 虚拟内存与程序局部性原理"></a>2.1.3 虚拟内存与程序局部性原理</h4><p><img src="https://yygh-testosscjf.oss-cn-beijing.aliyuncs.com/01435fc6fd2f8fc71e0b98c2aa170e4.png" alt="01435fc6fd2f8fc71e0b98c2aa170e4"></p>
+<p>我希望你可以从图中看到这两点。第一，虽然虚拟内存提供了很大的空间，但实际上进程启动之后，这些空间并不是全部都能使用的。<strong>开发者必须要使用 <code>malloc</code> 等分配内存的接口才能将内存从待分配状态变成已分配状态</strong>。</p>
+<p>在你得到一块虚拟内存以后，这块内存就是未映射状态，因为它并没有被映射到相应的物理内存，直到对该块内存进行读写时，操作系统才会真正地为它分配物理内存。然后这个页面才能成为正常页面。</p>
+<p>第二，<strong>在虚拟内存中连续的页面，在物理内存中不必是连续的</strong>。只要维护好从虚拟内存页到物理内存页的映射关系，你就能正确地使用内存了。这种映射关系是操作系统通过页表来自动维护的，不必你操心。</p>
+<h4 id="2-1-4-页表的结构"><a href="#2-1-4-页表的结构" class="headerlink" title="2.1.4 页表的结构"></a>2.1.4 页表的结构</h4><p>不过，虽然大多数情况下，CPU 和操作系统会一起完成页面的自动映射，不需要你关心其中的机制。但是当我们在做系统性能优化的时候，理解内存映射的过程就是十分必要的了。</p>
+<p>例如，<strong>我就曾经遇到过一个性能很差的程序，经过 <code>perf</code> 工具分析后，我发现是因为缺页中断过多导致的。这个时候，那么掌握页的结构和映射过程的知识就非常有必要了</strong>。所以我也想跟你来探讨一下这方面的内容。</p>
+<p>我们刚才也说了，映射的过程，是由 CPU 的内存管理单元 (<code>Memory Management Unit,MMU</code>) 自动完成的，但它依赖操作系统设置的页表。</p>
+<p>页表的本质是页表项 (<code>Page Table Entry, PTE</code>) 的数组，虚拟空间中的每一个页在页表中都有一个 <code>PTE</code> 与之对应，<code>PTE</code> 中会记录这个虚拟内存页所对应的实际物理页的起始地址。</p>
+<p>一个页表项对应着一个大小为 <code>4K</code> 的页，所以 <code>1024</code> 个页表项所能支持的空间就是 <code>4M</code>。那为了编码更多地址，我们必须使用更多的页表。而且，为了管理这些页表，我们还可以继续引入页表的数组：<strong>页目录表</strong>。</p>
+<p>页目录表中的每一项叫做页目录项 (<code>Page Directory Entry, PDE</code>)，每个 <code>PDE</code> 都对应一个页表，它记录了页表开始处的物理地址，这就是多级页表结构。</p>
+<p><strong>第一步是确定页目录基址</strong>。</p>
+<p><strong>第二步是定位页目录项（<code>PDE</code>）</strong>。上一步找到的页目录表基址加上高 10 位的值乘以 4，就是页目录项的位置。</p>
+<p><strong>第三步是定位页表项（<code>PTE</code>）</strong>。CPU 通过页目录项找到页表的位置以后，再用中间 10 位计算页表中的偏移，可以找到该虚拟地址所对应的页表项了。</p>
+<p><strong>最后一步是确定真实的物理地址</strong>。</p>
+<h4 id="2-1-5-页面的换入换出"><a href="#2-1-5-页面的换入换出" class="headerlink" title="2.1.5 页面的换入换出"></a>2.1.5 页面的换入换出</h4><p>不过我们前面也说到，由于程序运行符合局部性原理，CPU 访问内存会有很明显的重复访问的倾向性。那对于那些没有被经常使用到的内存，我们可以把它换出到主存之外，比如硬盘上的 swap 区域。新的虚拟内存页可以被映射到刚腾出来的这个物理页。这就涉及到了页面换入换出的调度问题。</p>
+<p>我们举个例子来说明一下。假如进程 A 一开始将虚拟内存的 0 至 <code>4K</code>，映射到物理内存的0 至 <code>4K</code> 空间。基于局部性原理，<code>4K</code> 以后的虚拟地址大概率是不会被访问的，我们可以让程序一直运行。</p>
+<p>直到程序开始访问 <code>4K</code> ~ <code>8K</code> 之间的虚拟地址了，我们就可以将现在的物理地址里的内容换出到磁盘的 swap 区域，然后再将虚拟内存的 <code>4K</code> ~ <code>8K</code> 这一个区域映射到 0~`4K<code>的这一块物理内存。在理想情况下，虽然进程 A 的虚拟内存非常大，比如</code>256T<code>，但 CPU 只需要一个 </code>4K` 大小的物理内存页就能满足它的需求了。</p>
+<p>当然在实际情况中肯定不会这么理想，所以一个进程所占用的物理内存不可能只有一个页。从效率的角度看，当物理内存足够时，操作系统也会尽量让尽可能多的页驻留在物理内存中。毕竟将内存中的数据写到磁盘里是非常耗时的操作。</p>
+<p>如何能最大化地在空间和时间上都取得平衡，这就要精心地设计页面的调度算法。</p>
+<p><strong>Linux 操作系统会为每一个进程都在 <code>/proc</code> 目录下创建一个目录，目录名就是进程号。我们可以通过打开这个目录下的一些文件来查看该进程的内存使用情况</strong>，例如：</p>
+<p> <code>cat /proc/1464/maps</code></p>
+<p>上述命令就是查看 1464 号进程的内存映射的情况。</p>
+<p>讨论区：</p>
+<p>（1）&lt;无论一个进程占用的内存资源有多大，在任一时刻，它需要的物理内存都是很少的&gt; 这句话没看懂,进程程序本身不就在内存中吗？</p>
+<p>作者回复: 不是，程序是按需加载的。尚未用到的和已经用不到了的，就会被换出去。虚拟内存可以帮你做出一个假象：你感觉虚拟内存空间随时可以访问，但真实数据可能不在物理内存里，你需要的时候才重新做虚拟内存到物理内存的映射。</p>
+<p>（2）既然有虚拟内存机制，为何程序仍然可能出现out of memory运行错误，是因为物理内存不够了，但能利用局部性原理在物理内存中只放入一定数据不超出限制吗？</p>
+<p>因为虚拟地址也有耗尽的可能呀。物理内存不够了，可以把不活跃页面往磁盘的swap区域放，但swap区域也有不够用的可能，这就是物理内存耗尽的情况。<code>3G</code>的用户空间，一次性要申请<code>4G</code>的空间，虚拟地址就不够用了。所以说，虚拟地址只是编织了一个很大地址的假象，其物理空间该耗尽的还是会耗尽。所以要记住不管什么时候，能释放的内存尽量释放总是一个好习惯。</p>
+<p>补充一篇文章再深入理解一下虚拟内存和物理内存：</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/a063225/article/details/103156819">(417条消息) 虚拟内存和物理内存的直观理解（概念、区别与联系）_PepperMan_Z的博客-CSDN博客</a></p>
+<p>深入理解<br>一个进程运行时会被分配<code>4G</code>的虚拟内存。 进程有了虚拟内存后，每个进程都认为自己拥有<code>4G</code>的内存空间，当然这只是每个进程认为的。但实际上，虚拟内存对应的实际物理内存，可能只对应的分配了一点点的物理内存，实际使用了多少内存，就会对应多少物理内存。</p>
+<p>进程得到的这<code>4G</code>虚拟内存是一个连续的地址空间（这也只是进程认为），而实际上，<strong>它的数据是存储在多个物理内存碎片的，还有一部分存储在外部磁盘存储器上，在需要时将数据交换进物理内存</strong>。</p>
+<p>进程开始要访问一个地址，它可能会经历下面的过程</p>
+<p>进程每次要访问地址空间上的某一个地址时，都需要把地址翻译为实际物理内存地址。<br>所有进程共享一整块物理内存，每个进程只把自己目前需要访问的虚拟地址空间映射到物理内存上。<br>进程需要知道哪些虚拟内存地址空间上的数据在物理内存上，哪些不在（可能这部分存储在磁盘上），<strong>若在物理内存上存在，则需要进一步知道数据存储在物理内存上的具体位置，这都需要通过页表来记录</strong>。<br>页表的每一个表项分两部分，第一部分记录此页是否在物理内存上，第二部分记录物理内存页的地址（如果在的话）。<br>当进程访问某个虚拟地址的时候，就会先去看页表，如果发现对应的数据不在物理内存上，就会发生缺页异常。<br>缺页异常的处理过程，操作系统立即阻塞该进程，并将硬盘里对应的页换入内存，然后使该进程就绪，如果内存已经满了，没有空地方了，那就找一个页覆盖，至于具体覆盖的哪个页，就需要看操作系统的页面置换算法是怎么设计的了。</p>
+<h3 id="2-3-内存布局：应用程序是如何安排数据的？"><a href="#2-3-内存布局：应用程序是如何安排数据的？" class="headerlink" title="2.3 内存布局：应用程序是如何安排数据的？"></a>2.3 内存布局：应用程序是如何安排数据的？</h3><h4 id="2-3-1-抽象内存布局"><a href="#2-3-1-抽象内存布局" class="headerlink" title="2.3.1 抽象内存布局"></a>2.3.1 抽象内存布局</h4><p>我们知道，CPU 运行一个程序，实质就是在顺序执行该程序的机器码。一个程序的机器码会被组织到同一个地方，这个地方就是<strong>代码段</strong>。</p>
+<p>对于有初值的变量，它的初始值会存 放在程序的二进制文件中，而且，这些数据部分也会被装载到内存中，即程序的<strong>数据段</strong>。</p>
+<p>对于未初始化的全局变量和静态变量，因为编译器知道它们的初始值都是 0，因此便不需要再在程序的二进制映像中存放这么多 0 了，只需要记录他们的大小即可，这便是 **<code>BSS段</code>**。<code>BSS 段</code>这个缩写名字是 Block Started by Symbol。</p>
+<p>数据段和 <code>BSS 段</code>里存放的数据也只能是部分数据，主要是全局变量和静态变量，但程序在运行过程中，仍然需要记录大量的临时变量，以及运行时生成的变量，这里就需要新的内存区域了，即程序的<strong>堆空间</strong>跟<strong>栈空间</strong>。与代码段以及数据段不同的是，堆和栈并不是从磁盘中加载，它们都是由程序在运行的过程中申请，在程序运行结束后释放。</p>
+<p>总的来说，一个程序想要运行起来所需要的几块基本内存区域：<strong>代码段、数据段、<code>BSS段</code>、堆空间和栈空间</strong>。下面就是内存布局的示意图：</p>
+<p><img src="https://yygh-testosscjf.oss-cn-beijing.aliyuncs.com/2.png" alt="1"></p>
+<p>除了上面所讲的基本内存区域外，现代应用程序中还会包含其他的一些内存区域，主要有以下几类：</p>
+<p><strong>存放加载的共享库的内存空间</strong>：如果一个进程依赖共享库，那对应的，该共享库的代码段、数据段、<code>BSS 段</code>也需要被加载到这个进程的地址空间中。</p>
+<p><strong>共享内存段</strong>：我们可以通过系统调用映射一块匿名区域作为共享内存，用来进行进程间通信。</p>
+<p><strong>内存映射文件</strong>：我们也可以将磁盘的文件映射到内存中，用来进行文件编辑或者是类似共享内存的方式进行进程通信。</p>
+<p>在图中，堆的空间里有一个向上的箭头，这里标明了堆地址空间的增长方向，也就是说，<strong>每次在进程向内核申请新的堆地址时候，其地址的值是在增大的</strong>。与之对应的是栈空间，有一个向下的箭头，说明栈增长的方向是向低地址方向增长，也就是说，<strong>每次进程申请新的栈地址时，其地址值是在减少的</strong>。</p>
+<h4 id="2-3-2-申请堆空间"><a href="#2-3-2-申请堆空间" class="headerlink" title="2.3.2 申请堆空间"></a>2.3.2 申请堆空间</h4><p>其实，不管是 32 位系统还是 64 位系统，内核都会维护一个变量 <code>brk</code>，指向堆的顶部，所以，**<code>brk</code> 的位置实际上就决定了堆的大小**。Linux 系统为我们提供了两个重要的系统调用来修改堆的大小，分别是 <code>sbrk</code> 和 <code>mmap</code>。接下来，我们来学习这两个系统调用是如何使用的。我们先来看 <code>sbrk</code>。</p>
+<h5 id="2-3-2-1-sbrk"><a href="#2-3-2-1-sbrk" class="headerlink" title="2.3.2.1 sbrk"></a>2.3.2.1 <strong><code>sbrk</code></strong></h5><p><strong><code>sbrk</code> 通过给内核的 <code>brk</code> 变量增加 <code>incr</code>，来改变堆的大小，<code>incr</code> 可以为负数</strong>。当 <code>incr</code> 为正数时，堆增大，当 <code>incr</code> 为负数时，堆减小。如果 <code>sbrk</code> 函数执行成功，那返回值就是 <code>brk</code>的旧值；如果失败，就会返回 -1，同时会把 <code>errno</code> 设置为 <code>ENOMEM</code>。</p>
+<p>在实际应用中，我们很少直接使用 <code>sbrk</code> 来申请堆内存，而是使用 C 语言提供的 <code>malloc</code> 函数进行堆内存的分配，然后用 <code>free</code> 进行内存释放。</p>
+<p>在 C 语言的运行时库里，<code>malloc</code> 向程序提供分配一小块内存的功能，当运行时库的内存分配完之后，它会使用 <code>sbrk</code> 方法向操作系统再申请一块大的内存。我们可以将 C 语言的运行时库类比为零售商，它从操作系统那里批发一块比较大的内存，然后再通过零售的方式一点点地提供给程序员使用。</p>
+<h5 id="2-3-2-2-mmap"><a href="#2-3-2-2-mmap" class="headerlink" title="2.3.2.2 mmap"></a>2.3.2.2 <strong><code>mmap</code></strong></h5><p>另一个可以申请堆内存的系统调用是 <code>mmap</code>，它是最重要的内存管理接口。</p>
+<p><code>mmap</code> 的功能非常强大，根据参数的不同，它可以用于创建共享内存，也可以创建文件映射区域用于提升 IO 效率，还可以用来申请堆内存。决定它的功能的，主要是 <code>prot</code>, <code>flags</code>和 <code>fd</code> 这三个参数，我们分别来看看。</p>
+<p><code>prot</code> 的值可以是以下四个常量的组合：</p>
+<p><code>PROT_EXEC</code>，表示这块内存区域有可执行权限，意味着这部分内存可以看成是代码段，它里面存储的往往是 CPU 可以执行的机器码。</p>
+<p><code>PROT_READ</code>，表示这块内存区域可读。</p>
+<p><code>PROT_WRITE</code>，表示这块内存区域可写。</p>
+<p><code>PROT_NONE</code>，表示这块内存区域的页面不能被访问。</p>
+<p>而 flags 的值可取的常量比较多，你可以通过 <code>man</code> <code>mmap</code> 查看，这里我只列举一下最重要的四种可取值常量：</p>
+<p><strong>MAP_SHARED</strong>：创建一个共享映射的区域，多个进程可以通过共享映射的方式，来共享同一个文件。这样一来，一个进程对该文件的修改，其他进程也可以观察到，这就实现了数据的通讯。</p>
+<p><strong>MAP_PRIVATE</strong>：创建一个私有的映射区域，多个进程可以使用私有映射的方式，来映射同一个文件。但是，当一个进程对文件进行修改时，操作系统就会为它创建一个独立的副本，这样它对文件的修改，其他进程就看不到了，从而达到映射区域私有的目的。</p>
+<p><strong>MAP_ANONYMOUS</strong>：创建一个匿名映射，也就是没有关联文件。使用这个选项时，fd 参数必须为空。</p>
+<p><strong>MAP_FIXED</strong>：一般来说，<code>addr</code> 参数只是建议操作系统尽量以 <code>addr</code> 为起始地址进行内存映射，但如果操作系统判断 <code>addr</code> 作为起始地址不能满足长度或者权限要求时，就会另外再找其他适合的区域进行映射。如果 flags 的值取是 MAP_FIXED 的话，就不再把<code>addr</code> 看成是建议了，而是将其视为强制要求。如果不能成功映射，就会返回空指针。</p>
+<h5 id="2-3-2-3-mmap的其他应用场景"><a href="#2-3-2-3-mmap的其他应用场景" class="headerlink" title="2.3.2.3 mmap的其他应用场景"></a>2.3.2.3 <code>mmap</code>的其他应用场景</h5><p>根据映射的类型，<code>mmap</code> 有四种最常用的组合：</p>
+<p><img src="https://yygh-testosscjf.oss-cn-beijing.aliyuncs.com/3.png" alt="1"></p>
+<h5 id="2-3-2-4-课程小结"><a href="#2-3-2-4-课程小结" class="headerlink" title="2.3.2.4 课程小结"></a>2.3.2.4 课程小结</h5><p>在这节课中，我们从抽象到具体逐步了解了程序运行时的内存布局模型。我们了解到，<strong>一个进程的内存可以分为内核区域和用户区域</strong>。内核区域是由操作系统内核维护的，我们通常并不关心这一块内存是如何使用的。</p>
+<p>程序员最关心的是用户空间，用户空间大致可以分为栈、堆、<code>bss</code> 段、数据段和代码段：</p>
+<p><strong>代码段</strong>保存的是程序的机器指令，这一段区域的内存往往是可读可执行，但不可写；</p>
+<p><strong>数据段</strong>保存的是程序的静态变量和全局变量；</p>
+<p><strong>bss 段</strong>用于无初值的变量区域；</p>
+<p><strong>堆</strong>是程序员可以自由申请的空间，当我们在写程序时要保存数据，优先会选择堆；</p>
+<p><strong>栈</strong>是函数执行时的活跃记录，这将是我们下一节课要重点分析的内容。</p>
+<h3 id="2-4-深入理解栈：从CPU和函数的视角看栈的管理"><a href="#2-4-深入理解栈：从CPU和函数的视角看栈的管理" class="headerlink" title="2.4 深入理解栈：从CPU和函数的视角看栈的管理"></a>2.4 <strong>深入理解栈：从CPU和函数的视角看栈的管理</strong></h3><h4 id="2-4-1-函数与栈帧"><a href="#2-4-1-函数与栈帧" class="headerlink" title="2.4.1 函数与栈帧"></a>2.4.1 <strong>函数与栈帧</strong></h4><p>当我们在调用一个函数的时候，CPU 会在栈空间（这当然是线性空间的一部分）里开辟一小块区域，这个函数的局部变量都在这一小块区域里存活。当函数调用结束的时候，这一小块区域里的局部变量就会被回收。</p>
+<p>这一小块区域很像一个框子，所以大家就命名它为 stack frame。frame 本意是框子的意思，在翻译的时候被译为帧，现在它的中文名字就是栈帧了。</p>
+<p>所以，我们可以说，<strong>栈帧本质上是一个函数的活动记录。</strong>当某个函数正在执行时，它的活动记录就会存在，当函数执行结束时，活动记录也被销毁。</p>
+<h3 id="2-5-栈的魔法：从栈切换的角度理解进程和协程"><a href="#2-5-栈的魔法：从栈切换的角度理解进程和协程" class="headerlink" title="2.5 栈的魔法：从栈切换的角度理解进程和协程"></a>2.5 <strong>栈的魔法：从栈切换的角度理解进程和协程</strong></h3><p>几乎所有的程序员都会遇到并发程序。因为多进程或者多线程程序可以并发执行，充分利用多 CPU 多核的计算资源来完成任务，会大大提升应用程序的性能。</p>
+<p>所以，我相信你在工作中也遇到过多线程程序，但不知道你是否考虑过进程和线程是如何切换的呢？很多文章都介绍了，操作系统为了避免频繁进入内核态，会把很多工作都尽量放在用户态。那么你有没有仔细思考过内核态、用户态到底意味着什么呢？</p>
+<p>要回答上面的问题，我们就要理解这些概念背后最重要的一个步骤：对执行单元的上下文环境进行切换。它就是由栈这个核心数据结构支撑的，这也是我们今天学习的重点内容。</p>
+<h4 id="2-5-1-什么是执行单元"><a href="#2-5-1-什么是执行单元" class="headerlink" title="2.5.1 什么是执行单元"></a>2.5.1 <strong>什么是执行单元</strong></h4><p>执行单元是指 CPU 调度和分派的基本单位，它是一个 CPU 能正常运行的基本单元。执行单元是可以停下来的，只要能把 CPU 状态（其实就是寄存器的值）全部保存起来，等到这个执行单元再被调度的时候，就把状态恢复过来就行了。**我们把这种保存状态，挂起，恢复执行，恢复状态的完整过程，称为执行单元的调度 (Scheduling)**。</p>
+<p>具体来说，常见的执行单元有进程，线程和协程三种，接下来，我们详细说明这三种执行单元的区别和联系。我们先来比较进程和线程。</p>
+<h4 id="2-5-2-理解进程和线程"><a href="#2-5-2-理解进程和线程" class="headerlink" title="2.5.2 理解进程和线程"></a>2.5.2 理解进程和线程</h4><p>当运行一个可执行程序的时候，操作系统就会启动一个进程。进程会被操作系统管理和调度，被调度到的进程就可以独占 CPU 了。</p>
+<p>CPU 就像是一个可以轮流使用的工作台，多个进程可以在工作台上工作，时间到了就会带着自己的工作离开工作台，换下一个进程上来工作。</p>
+<p><strong>进程有自己独立的内存空间和页表，以及文件表等等各种私有资源</strong>，如果使用多进程系统，让多个任务并发执行，那么它所占用的资源就会比较多。线程的出现解决了这个问题。</p>
+<p>同一个进程中的线程则共享该进程的内存空间，文件表，文件描述符等资源，它与同一个进程的其他线程共享资源分配。<strong>除了共享的资源，每个线程也有自己的私有空间，这就是线程的栈。线程在执行函数调用的时候，会在自己的线程栈里创建函数栈帧。</strong></p>
+<p>根据上面所说的特点，人们常把<strong>进程看做是资源分配的单位，把线程才看成一个具体的执行实体</strong>。</p>
+<h4 id="2-5-3-理解协程"><a href="#2-5-3-理解协程" class="headerlink" title="2.5.3 理解协程"></a>2.5.3 <strong>理解协程</strong></h4><p>协程是比线程更轻量的执行单元。进程和线程的调度是由操作系统负责的，而协程则是由执行单元相互协商进行调度的，所以它的切换发生在用户态。只有前一个协程主动地执行yield 函数，让出 CPU 的使用权，下一个协程才能得到调度。</p>
+<p>因为程序自己负责协程的调度，所以大多数时候，我们可以让不那么忙的协程少参与调度，从而提升整个程序的吞吐量，而不是像进程那样，没有繁重任务的进程，也有可能被换进来执行。</p>
+<h4 id="2-5-4-协程是怎么调度和切换的？"><a href="#2-5-4-协程是怎么调度和切换的？" class="headerlink" title="2.5.4 协程是怎么调度和切换的？"></a>2.5.4 <strong>协程是怎么调度和切换的？</strong></h4><p>它主要有三个特点：</p>
+<ol>
+<li>占用的资源更少 ;</li>
+<li>所有的切换和调度都发生在用户态。</li>
+<li>它的调度是协商式的，而不是抢占式的。</li>
+</ol>
+<p>前两个特点容易理解，我来给你重点解释一下第三个特点。</p>
+<p>目前主流语言基本上都选择了多线程作为并发设施，与线程相关的概念是抢占式多任务（Preemptive multitasking），而与协程相关的是协作式多任务。不管是进程还是线程，每次阻塞、切换都需要陷入系统调用 (system call)，先让 CPU 执行操作系统的调度程序，然后再由调度程序决定该哪一个进程 (线程) 继续执行。</p>
+<p><strong>由于抢占式调度执行顺序无法确定，我们使用线程时需要非常小心地处理同步问题，而协程完全不存在这个问题。因为协作式的任务调度，是要用户自己来负责任务的让出的。</strong>如果一个任务不主动让出，其他任务就不会得到调度。这是协程的一个弱点，但是如果使用得当，这其实是一个可以变得很强大的优点。</p>
+<h4 id="2-5-5-进程是怎么调度和切换的？"><a href="#2-5-5-进程是怎么调度和切换的？" class="headerlink" title="2.5.5 进程是怎么调度和切换的？"></a>2.5.5 进程是怎么调度和切换的？</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="type">pid_t</span> pid;</span><br><span class="line">	<span class="keyword">if</span> (!(pid = fork())) &#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;I am child process\n&quot;</span>);</span><br><span class="line">		<span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span> &#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;I am father process\n&quot;</span>);</span><br><span class="line">		<span class="built_in">wait</span>(pid);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在上面的代码中，<strong>fork 是一个系统调用，用于创建进程，如果其返回值为 0，则代表当前进程是子进程，如果其返回值不为 0，则代表当前进程是父进程，而这个返回值就是子进程的进程 ID</strong>。</p>
+<p>我们看到，子进程在打印完一行语句后就调用 exit 退出执行了。父进程在打印完以后，并没有立即退出，而是调用 wait 函数等待子进程退出。由于进程的调度执行是操作系统负责的，具有很大的随机性，所以父进程和子进程谁先退出，我们并不能确定。<strong>为了避免子进程变成孤儿进程，我们采用了让父进程等待子进程退出的办法，就是对两个进程进行同步</strong>。</p>
+<p>其实，这段程序最难理解的是第 6 行，为什么一次 fork 后，会有两种不同的返回值？这是因为 fork 方法本质上在系统里创建了两个栈，这两个栈一个是父进程的，一个是子进程的。创建的时候，子进程完全“继承”了父进程的所有数据，包括栈上的数据。父子进程栈的情况如图 3 所示：</p>
+<p><img src="https://yygh-testosscjf.oss-cn-beijing.aliyuncs.com/4.png" alt="4"></p>
+<p>在图 3 里，只要有一个进程对栈进行修改，栈就会复制一份，然后父子进程各自持有一份。<strong>图中的黄色部分也是进程共用的，如果有一个进程修改它，也会复制一份副本，这种机制叫做写时复制。</strong></p>
+<p>接着，操作系统就会接管两个进程的调度。<strong>当父进程得到调度时，父进程的栈上是 <code>fork</code> 函数的 <code>frame</code>，当 CPU 执行 <code>fork</code> 的 <code>ret</code> 语句时，返回值就是子进程的 ID。</strong></p>
+<p><strong>而当子进程得到调度时，<code>rsp</code> 这个栈指针就将会指向子进程的栈，子进程的栈上也同样是<code>fork</code> 函数的 <code>frame</code>，它也会执行一次 <code>fork</code> 的 <code>ret</code> 语句，其返回值是 0。</strong></p>
+<p>所以第 6 行虽然是同一个变量 <code>pid</code>，但实际上，它在子进程的 main 函数的栈帧里有一个副本，在父进程的栈帧里也有一个副本。从 <code>fork</code> 开始，父进程和子进程就已经分道扬镳了。你可以将进程栈的切换与协程栈的切换对比着进行学习。</p>
+<p>我们通过一个例子展示了进程是如何创建的，并且分析了进程创建背后栈的变化过程。你可以看到，进程做为一种执行单元，它的切换还是要依赖于栈切换这个核心机制。</p>
+<h3 id="2-9-深入理解堆：malloc和内存池是怎么回事？"><a href="#2-9-深入理解堆：malloc和内存池是怎么回事？" class="headerlink" title="2.9 深入理解堆：malloc和内存池是怎么回事？"></a>2.9 <strong>深入理解堆：<code>malloc</code>和内存池是怎么回事？</strong></h3><p><code>sbrk</code> 和 <code>mmap</code> 这两个系统调用分配内存效率比较低，进程的内核态和用户态的区别，执行系统调用是要进入内核态的，运行态的切换会耗费不少时间。为了解决这个问题，<strong>人们倾向于使用系统调用来分配大块内存，然后再把这块内存分割成更小的块，以方便程序员使用，这样可以提升分配的效率</strong>。</p>
+<p>在 C 语言的运行时库里，这个工作是由 <code>malloc</code> 函数负责的。但有时候 C 语言的原生 <code>malloc</code> 实现还是不能满足特定应用的性能要求，这就需要程序员来实现符合自己应用要求的内存池，以便自己进行内存的分配和释放。</p>
+<p>这节课，我们就一起来学习，如何对通过系统调用申请来的大块内存进行更精细化的管理。通过这节课的学习，你将了解到堆内存管理的常用方法，以及内存泄露、double free 等常见的内存问题产生的原因和排查方法，从而提高自己分析和解决内存问题的能力。</p>
+<h4 id="2-9-1-malloc的实现原理"><a href="#2-9-1-malloc的实现原理" class="headerlink" title="2.9.1 malloc的实现原理"></a>2.9.1 <strong><code>malloc</code>的实现原理</strong></h4><p>内存的精细化管理，我们要考虑两个因素，<strong>一是分配和回收的效率，二是内存区域的有效利用率</strong>，内存区域的有效利用率又包含两个方面，一个方面是每一小块内存内部是否被合理利用，另一个方面是块与块之间是否存在无法利用的小块内存。</p>
+<h4 id="2-9-2-空闲链表"><a href="#2-9-2-空闲链表" class="headerlink" title="2.9.2 空闲链表"></a>2.9.2 <strong>空闲链表</strong></h4><p>当分配内存的请求到达以后，我们就通过遍历 free list 来查找可用的空闲内存区域，在找到合适的空闲区域以后，就将这一块区域从链表中摘下来。</p>
+<p>如果此时，又到达了一个内存分配请求，要申请一个大小为 20 的内存区域，虽然所有空闲区域的大小之和是 48，是超过 20 的，但是由于这三块空闲区域并不连续，所以，我们已经无法从这 100 字节的内存中再分配出一块 20 字节的内存区域了，相对于这次请求，这三块 16 字节的空闲区域就是<strong>内存碎片</strong>。这就是我们所介绍的简单算法的第一个缺陷：<strong>会产生内存碎片</strong>。</p>
+<p>每一次分配内存时，我们都需要遍历 free list，最差情况下的时间复杂度显然是 O(n)。如果是多线程同时分配的话，free list 会被多线程并发访问，为了保护它，就必须使用各种同步机制，比如锁或者无锁的 concurrent linked list 等。可见上述算法的第二个缺陷是<strong>分配效率一般，且多线程并发场景下性能还会恶化</strong>。</p>
+<p>为了改进以上两个问题，人们想了很多办法，我们举几个历史上曾经出现的改进方案。其中一种方案是直接对简单算法进行优化。简单算法中找到第一个可用的区域就返回，这个策略被称为 First Fit，优化的具体做法是把它改成最佳匹配 (Best Fit)，改造后，它要找到能满足条件的最小的空闲区域才返回。</p>
+<p>从直观上说，这种分配策略能尽可能地保留大块内存，避免它被快速地分割成小块内存，这就能更好地对抗内存碎片。严格的理论证明也证明了这一点。但是这种策略需要遍历整个链表，时间复杂度反而变差。</p>
+<p>另一种方案是 Knuth 提出的 Next Fit 策略，即每次查找不必从头开始，而是从上一次查找的位置继续向后查找。实验也证明，这种策略会比从头开始的算法有更高的效率。但它依然不能解决内存碎片的问题。</p>
+<p>还有一种改进方案，名字叫分桶式管理，<strong>这种改进是一种相对均衡的做法，在对抗内存碎片和分配释放的时间复杂度两个方向都有改善</strong>。这也是在现实中被使用的最广泛的一种方法。接下来，我们就重点分析分桶式管理算法。</p>
+<h4 id="2-9-3-分桶式内存管理"><a href="#2-9-3-分桶式内存管理" class="headerlink" title="2.9.3 分桶式内存管理"></a>2.9.3 <strong>分桶式内存管理</strong></h4><p>分桶式内存管理采用了多个链表，对于单个链表，它内部的所有结点所对应的内存区域的大小是相同的。<strong>换句话说，相同大小的区域会挂载到同一个链表上。</strong></p>
+<p>最常见的方式是以 4 字节为最小单位，把所有 4 字节的区域挂到同一个链表上，再把 8 字节的区域挂到一起，然后是 16 字节，32 字节，这样以 2 次幂向上增长。</p>
+<p>首先，分配的时候，我们要只要找到能满足这一次分配请求的最小区域，然后去相应的链表里把整块区域都取下来。比如，分配一个 7 字节的内存块时，我们就可以从 8 字节大小的空闲链表里直接取出链表头上的那块区域，分配给应用程序。<strong>由于从链表头上删除元素的时间复杂度是 O(1)，所以我们分配内存的效率就大大提高了。</strong></p>
+<p>由于整个大块内存被提前分割成了整齐的小块（比如是以 4 字节对齐），<strong>所以整个区域里不存在块与块之间内存碎片</strong>。但是这种做法还是会产生区域内部的空间浪费，比如上面举的例子，当申请的内存大小是 7 时，按当前算法，只能分配给它大小为 8 的块，这就造成了一个字节的内部浪费，或者称之为<strong>内部碎片</strong>。</p>
+<p>内部碎片带来的问题是内存使用率没有达到 100%，在最差情况下，可能只有 50%。但是内部碎片随着这一块区域的释放也就消失了，所以不会因为长时间运行而积累成严重的问题。</p>
+<p><strong>释放时，只需要把要释放的内存直接挂载到相应的链表里就可以了。 这个速度和分配是一样的，效率非常高。</strong></p>
+<p><strong>分桶式内存管理比简单算法无论是在算法效率方面，还是在碎片控制方面都有很大的提升</strong>。但它的缺陷也很明显：区域内部的使用率不够高和动态扩展能力不够好。例如，4 字节的区域提前消耗完了，但 8 字节的空闲区域还有很多，此时就会面临两难选择，<strong>如果直接分配 8 字节的区域，则区域内部浪费就比较多，如果不分配，则明明还有空闲区域，却无法成功分配。</strong></p>
+<h4 id="2-9-4-伙伴系统"><a href="#2-9-4-伙伴系统" class="headerlink" title="2.9.4 伙伴系统"></a>2.9.4 <strong>伙伴系统</strong></h4><p>如下图所示。分配一块 4 字节大小的空间，在 4 字节的 free list 上找不到空闲区域，系统就会往上找，假如 8 字节和 16 字节的 free list 中也没有空闲区域，就会一直向上找到 32 字节的 free list。</p>
+<p>伙伴系统不会直接把 32 的空闲区域分配出去，因为这样做的话，会带来巨大的浪费。它会先把 32 字节分成两个 16 字节，把后边一个挂入到 16 字节的 free list 中。然后继续拆分前一半。前一半继续拆成两个 8 字节，再把后一半挂入到 8 字节的 free list，最后，把前一半 8 字节拿去分配，当然这里也要继续拆分成两个 4 字节的空闲区域，其中一个用于本次 <code>malloc</code> 分配，另一个则挂入到 4 字节的 free list。分配后的内存的状态如下所示：</p>
+<p><img src="https://yygh-testosscjf.oss-cn-beijing.aliyuncs.com/5.png" alt="5"></p>
+<p><strong>这种不断地把一块内存分割成更小的两块内存的做法，就是伙伴系统，这两块更小的内存就是伙伴</strong>。 它的好处是可以动态地根据分配请求将大的内存分割成小的内存。当释放内存时，如果系统发现与被释放的内存相邻的那个伙伴也是空闲的，就会把它们合并成一个更大的连续内存。通过这种拆分，系统就变得更加富有弹性。</p>
+<p>在实际工作中，你可能会遇到这两个问题而束手无策：</p>
+<p>第一个问题是，系统所提供的 <code>malloc</code>，其性能不足以支撑自己的业务，或者自己的业务</p>
+<p>在分配内存时有其特殊的规律，需要为它做专门的订制和优化；</p>
+<p>第二个问题是，在 <code>malloc</code> 和 <code>free</code> 里做一些统计动作以排查问题，比如打印日志。</p>
+<h3 id="2-10-页中断：fork、mmap背后的保护神"><a href="#2-10-页中断：fork、mmap背后的保护神" class="headerlink" title="2.10 页中断：fork、mmap背后的保护神"></a>2.10 <strong>页中断：<code>fork</code>、<code>mmap</code>背后的保护神</strong></h3><p>在前面的课程里，我们了解了进程内部的分布，但也留下了三个关键的问题没有讲清楚：</p>
+<ol>
+<li><code>fork</code> 的工作方式非常奇怪，一方面父进程和子进程还可以访问共有的变量，另一方面，它们又可以各自修改这个变量，且这个修改对方都看不见，这是怎么做到的呢？</li>
+<li> 页表中未映射状态的页表项，并不存在一块具体的物理内存与之对应。但是当我们访问到这一页的时候，页表项可以自动变成已映射的正常状态。谁在背后做了什么事情呢？</li>
+<li><code>mmap</code> 的功能十分强大，这些强大的能力是怎么完成的呢？</li>
+</ol>
+<p>这三个问题，虽然看上去相互之间关系不大，但实际上它们背后都依赖<strong>页中断机制</strong>。</p>
+<p>页中断和普通的中断一样，它的中断服务程序入口也在 <code>IDT</code> 中，但它是由 <code>MMU</code> 产生的硬件中断。<strong>页中断有两类重要的类型：写保护中断和缺页中断。正是这两类中断在整个系统的后台默默地工作着，就像守护神一样支撑着内存系统正常工作</strong>。</p>
+<p>大多数时候，我们即使不知道它们的存在，程序也能正常地运行。但是有时候，程序写得不好就有可能造成中断频繁发生，从而带来巨大的性能下降。面对这种情况，我们第一时间就应该想到统计页中断。因为除了页中断本身会带来性能下降之外，统计页中断也可以反推程序的运行特点，从而为进一步分析程序瓶颈点，提供数据和思路。</p>
+<h4 id="2-10-1-页中断有哪些类型？"><a href="#2-10-1-页中断有哪些类型？" class="headerlink" title="2.10.1 页中断有哪些类型？"></a>2.10.1 <strong>页中断有哪些类型？</strong></h4><p>在之前的课程里，我们介绍了页表映射的原理，也提到过页表项里定义了页的读写属性等等。如果物理页不在内存中，或者页表未映射，或者读写请求不满足页表项内的权限定义时，<code>MMU</code> 单元就会产生一次中断。</p>
+<p>根据中断来源的不同，页中断大致可以分为以下几种类型：</p>
+<p><img src="https://yygh-testosscjf.oss-cn-beijing.aliyuncs.com/6.png" alt="5"></p>
+<h4 id="2-10-2-fork原理：写保护中断与写时复制"><a href="#2-10-2-fork原理：写保护中断与写时复制" class="headerlink" title="2.10.2 fork原理：写保护中断与写时复制"></a>2.10.2 <strong>fork原理：写保护中断与写时复制</strong></h4><p>我们前面说，父进程和子进程不仅可以访问共有的变量，还可以各自修改这个变量，并且这个修改对方都看不见。这其实是 fork 的一种写时复制机制，而里面起关键作用的就是<strong>写保护中断</strong>。下面我们来看看这到底是怎么一回事。</p>
+<p>操作系统为每个进程提供了一个进程管理的结构，在偏理论的书籍里一般会称它为进程控制块（Process Control Block，PCB)。具体到 Linux 系统上，PCB 就是<code>task_struct</code> 这个结构体。它里面记录了进程的页表基址，打开文件列表、信号、时间片、调度参数和线性空间已经分配的内存区域等等数据。</p>
+<p>其中，<strong>描述线性空间已分配的内存区域的结构对于内存管理至关重要</strong>，我们先来看一下这个结构。在 Linux 源码中，负责这个功能的结构是 <code>vm_area_struct</code>，后面简称 <code>vma</code>。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">vm_area_struct</span> &#123;</span><br><span class="line"></span><br><span class="line"><span class="type">unsigned</span> <span class="type">long</span> vm_start; <span class="comment">// 区间首地址</span></span><br><span class="line"></span><br><span class="line"><span class="type">unsigned</span> <span class="type">long</span> vm_end; <span class="comment">// 区间尾地址</span></span><br><span class="line"></span><br><span class="line"><span class="type">pgprot_t</span> vm_page_prot; <span class="comment">// 访问控制权限</span></span><br><span class="line"></span><br><span class="line"><span class="type">unsigned</span> <span class="type">long</span> vm_flags; <span class="comment">// 标志位</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">file</span> * vm_file; <span class="comment">// 被映射的文件</span></span><br><span class="line"></span><br><span class="line"><span class="type">unsigned</span> <span class="type">long</span> vm_pgoff; <span class="comment">// 文件中的偏移量</span></span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>在操作系统内核里，fork 的第一个动作是把 PCB 复制一份，但类似于物理页等进程资源不会被复制</strong>。这样的话，父进程与子进程的代码段、数据段、堆和栈都是相同的，这是因为它们拥有相同的页表，自然也有相同的虚拟空间布局和对物理内存的映射。如果父进程在 fork 子进程之前创建了一个变量，打开了一个文件，那么父子进程都能看到这个变量和文件。</p>
+<p><strong>fork 的第二个动作是复制页表和 PCB 中的 <code>vma</code> 数组，并把所有当前正常状态的数据段、堆和栈空间的虚拟内存页，设置为不可写，然后把已经映射的物理页面的引用计数加 1</strong>。</p>
+<p>这一步只需要复制页表和修改 <code>PTE</code> 中的写权限位可以了，并不会真的为子进程的所有内存空间分配物理页面，修改映射，所以它的效率是非常高的。这时，父子进程的页表的情况如下图所示：</p>
+<p><img src="https://yygh-testosscjf.oss-cn-beijing.aliyuncs.com/7.png" alt="7"></p>
+<p>在上图中，物理页括号中的数字代表该页被多少个进程所引用。Linux 中用于管理物理页面，和维护物理页的引用计数的结构是 <code>mem_map</code> 和 <code>page struct</code>。</p>
+<p>这两个动作执行完后，<code>fork</code> 调用就结束了。此时，由于有父进程和子进程两个 PCB，操作系统就会把两个进程都加入到调度队列中。</p>
+<p>接下来，<strong>就是写保护中断要发挥作用的地方了。不管是父进程还是子进程，它们接下来都有可能发生写操作，但我们知道在 fork 的第二步操作中，已经将所有原来可写的地方都变成不可写了，所以这时必然会发生写保护中断。</strong></p>
+<p>在 <code>do_wp_page</code> 中，系统会首先判断发生中断的虚拟地址所对应的物理地址的引用计数，如果大于 1，就说明现在存在多个进程共享这一块物理页面，那么它就需要为发生中断的进程再分配一个物理页面，把老的页面内容拷贝进这个新的物理页，最后把发生中断的虚拟地址映射到新的物理页。这就完成了一次写时复制 (Copy On Write， COW）。</p>
+<p><img src="https://yygh-testosscjf.oss-cn-beijing.aliyuncs.com/8.png" alt="8"></p>
+<p>在上图中，当子进程发生写保护中断后，系统就会为它分配新的物理页，然后复制页面， 再修改页表映射。这时老的物理页的引用计数就变为 1，同时子进程中的 <code>PTE</code> 的权限也从 只读变为读写。</p>
+<h4 id="2-10-3-mmap强大的能力是怎么来的？"><a href="#2-10-3-mmap强大的能力是怎么来的？" class="headerlink" title="2.10.3 mmap强大的能力是怎么来的？"></a>2.10.3 <strong><code>mmap</code>强大的能力是怎么来的？</strong></h4><h2 id="3-硬件篇"><a href="#3-硬件篇" class="headerlink" title="3 硬件篇"></a>3 硬件篇</h2><h3 id="3-1-CPU-Cache：访存速度是如何大幅提升的？"><a href="#3-1-CPU-Cache：访存速度是如何大幅提升的？" class="headerlink" title="3.1 CPU Cache：访存速度是如何大幅提升的？"></a>3.1 <strong>CPU Cache：访存速度是如何大幅提升的？</strong></h3><p><strong>在存储系统中加入缓存，可以让整个存储系统的性能接近寄存器，并且每字节的成本都接近内存，甚至是磁盘</strong>。</p>
+<p>在多核芯片上，缓存集成的方式主要有以下三种：</p>
+<p><strong>集中式缓存</strong>：一个缓存和所有处理器直接相连，多个核共享这一个缓存；</p>
+<p><strong>分布式缓存</strong>：一个处理器仅和一个缓存相连，一个处理器对应一个缓存；</p>
+<p><strong>混合式缓存</strong>：在 <code>L3</code> 采用集中式缓存，在 <code>L1</code> 和 <code>L2</code> 采用分布式缓存。</p>
+<p>现代的多核处理器大都采用混合式的方式将缓存集成到芯片上，一般情况下，<code>L3</code> 是所有处理器核共享的，<code>L1</code> 和 <code>L2</code> 是每个处理器核特有的。</p>
+<p><img src="https://yygh-testosscjf.oss-cn-beijing.aliyuncs.com/9.png" alt="9"></p>
+<p>了解了缓存的物理架构后，我们来看一下缓存的工作原理</p>
+<h4 id="3-1-1-缓存的工作原理"><a href="#3-1-1-缓存的工作原理" class="headerlink" title="3.1.1 缓存的工作原理"></a>3.1.1 <strong>缓存的工作原理</strong></h4><p>首先，我们来理解一个概念，cache line。cache line 是缓存进行管理的一个最小存储单 元，也叫缓存块。从内存向缓存加载数据也是按缓存块进行加载的，一个缓存块和一个内 存中相同容量的数据块（下称内存块）对应。这里，我们先从如何管理缓存块的角度，来看下缓存块的组织形式：</p>
+<p><img src="https://yygh-testosscjf.oss-cn-beijing.aliyuncs.com/10.png" alt="10"></p>
+<p>上图中的小方框就代表一个缓存块。从图中，你也可以看到，整个缓存由组（set）构成，每个组由路（way）构成。所以整个缓存容量等于组数、路数和缓存块大小的乘积：</p>
+<p><strong>整个缓存容量 = 组数 × 路数 × 缓存块大小</strong></p>
+<p>为了简化寻址方式，内存地址确定的数据块总是会被放在一个固定的组，但可以放在组内的任意路上，也就是说，对于一个特定地址数据的访问，它如果要载入缓存，那么它放在上图中的行数是固定的，但是具体放到哪一列是不固定的。根据缓存中组数和路数的不同，我们将缓存的映射方式分为三类：</p>
+<ol>
+<li><strong>直接相连映射</strong>：缓存只有一个路，一个内存块只能放置在特定的组上；</li>
+<li><strong>全相连映射</strong>：缓存只有一个组，所有的内存块都放在这一个组的不同路上；</li>
+<li><strong>组组相连映射</strong>：缓存同时由多个组和多个路。</li>
+</ol>
+<p>对于直接相连映射，当多个内存块映射到同一组时，会产生冲突，因为只有一列，这个时</p>
+<p>候就需要将旧的缓存块换出，同时将新的缓存块放入，所以<strong>直接相连映射会导致缓存块被</strong></p>
+<p><strong>频繁替换</strong>。</p>
+<p>而<strong>全相连映射可以在很大程度上避免冲突，不过，当要查询某个缓存块时，需要逐个遍历每个路，而且电路实现也比较困难</strong>。一个折中的办法就是，采用组组相连映射。这种方式与直接相连映射相比，产生冲突的可能性更小，与全相连映射相比，查询效率更高，实现也更简单。</p>
+<p>确定需要被映射到哪个组之后，我们需要在该组的路中进行查询。查询方式也很简单，直接将每个缓存块 tag 的 bit 位和地址 <code>Addr</code> 的高 21 位逐一进行匹配。如果相等，就说明该内存块已经载入到缓存中；如果没有匹配的 tag，就说明缓存缺失，需要将内存块放到该组的一个空闲缓存块上；如果所有路的缓存块都正在被使用，那么需要选择一个缓存块，将其移出缓存，把新的内存块载入。</p>
+<p>上面这个过程涉及到缓存块状态转换，而状态转换又涉及到有效位 V、脏位 M、标签tag。总体来讲，<strong>缓存的状态转换有以下几种情况：</strong></p>
+<p><img src="https://yygh-testosscjf.oss-cn-beijing.aliyuncs.com/11.png" alt="11"></p>
+<p>这里我们提到了缓存块替换，当同组的缓存块都被用完时，需要选择一个缓存块被换出，那么应该选谁被换出呢？这就和缓存块替换策略有关了。</p>
+<h4 id="3-1-2-缓存块替换策略"><a href="#3-1-2-缓存块替换策略" class="headerlink" title="3.1.2 缓存块替换策略"></a>3.1.2 <strong>缓存块替换策略</strong></h4><p>缓存块替换策略需要达到的一个目标是：<strong>被替换出的数据块应该是将来最晚会被访问的块</strong>。然而，对将来即将发生的事情是没有办法预测的，因为处理器并不知道程序将来会访问哪个地址。因此，<strong>现在的缓存替换策略都采用了最近最少使用算法（<code>Least RecentlyUsed ，LRU</code>）或者是类似 <code>LRU</code> 的算法</strong>。</p>
+<p>在理解了缓存结构和它的工作原理以后，我们就可以来讨论这节课的核心内容了：如何正确地使用缓存，才可以写出高性能的程序？</p>
+<h4 id="3-1-3-缓存对程序性能的影响"><a href="#3-1-3-缓存对程序性能的影响" class="headerlink" title="3.1.3 缓存对程序性能的影响"></a>3.1.3 <strong>缓存对程序性能的影响</strong></h4><p><strong>如果下次访问内存时，数据已经在缓存中了，这就是缓存命中，它获取目标数据的速度非常快。如果数据没在缓存中，这就是缓存缺失，此时要启动内存数据传输，而内存的访问速度相比缓存差很多</strong>。</p>
+<p><strong>缓存缺失</strong></p>
+<p>缓存性能主要取决于缓存命中率，也就说缓存缺失（cache miss）越少，缓存的性能就越好。一般来说，引起缓存缺失的类型主要有三种：</p>
+<ol>
+<li><strong>强制缺失</strong>：第一次将数据块读入到缓存所产生的缺失，也被称为冷缺失（cold miss），因为当发生缓存缺失时，缓存是空的（冷的）；</li>
+<li><strong>冲突缺失</strong>：由于缓存的相连度有限导致的缺失；</li>
+<li><strong>容量缺失</strong>：由于缓存大小有限导致的缺失。</li>
+</ol>
+<p>第一类强制缺失最容易理解，因为第一次将数据读入缓存时，缓存中不会有数据，这种缺失无法避免。</p>
+<p>第二类冲突缺失是因为相连度有限导致的，这里我用一个例子给你说明一下。在这个例子中，第一步我们可以通过 <code>getconf</code> 命令查看缓存的信息：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">getconf -a |grep CACHE</span></span><br><span class="line">LEVEL1_ICACHE_SIZE 32768</span><br><span class="line">LEVEL1_ICACHE_ASSOC 8</span><br><span class="line">LEVEL1_ICACHE_LINESIZE 64</span><br><span class="line">LEVEL1_DCACHE_SIZE 32768</span><br><span class="line">LEVEL1_DCACHE_ASSOC 8</span><br><span class="line">LEVEL1_DCACHE_LINESIZE 64</span><br><span class="line">LEVEL2_CACHE_SIZE 262144</span><br><span class="line">LEVEL2_CACHE_ASSOC 4</span><br><span class="line">LEVEL2_CACHE_LINESIZE 64</span><br><span class="line">LEVEL3_CACHE_SIZE 3145728</span><br><span class="line">LEVEL3_CACHE_ASSOC 12</span><br><span class="line">LEVEL3_CACHE_LINESIZE 64</span><br><span class="line">LEVEL4_CACHE_SIZE 0</span><br><span class="line">LEVEL4_CACHE_ASSOC 0</span><br><span class="line">LEVEL4_CACHE_LINESIZE 0</span><br></pre></td></tr></table></figure>
+
+<p>在这个缓存的信息中，<code>L1Cache</code>（<code>LEVEL1_ICACHE</code> 和 <code>LEVEL1_DCACHE</code> 分别表示指令缓存和数据缓存，这里我们只关注数据缓存）的 cache line 大小为 64 字节，路数为 8 路，大小为 <code>32K</code>，可以计算出缓存的组数为 64 组（ <code>32*K* ÷ 8 ÷ 64 = 64</code>）。</p>
+<p>第二步，我们使用一个程序来测试缓存的影响：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">( )</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;%ld&quot;</span>,<span class="built_in">sizeof</span>(<span class="type">long</span> <span class="type">long</span>));</span><br><span class="line">	<span class="function"><span class="type">long</span> <span class="title">long</span> <span class="params">(*a)</span>[N] </span>= (<span class="type">long</span> <span class="built_in">long</span>(*)[N])<span class="built_in">calloc</span>(M * N, <span class="built_in">sizeof</span>(<span class="type">long</span> <span class="type">long</span>));</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">100000000</span>; i++) &#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> j = <span class="number">0</span>; j &lt; <span class="number">4096</span>; j+=<span class="number">512</span>) &#123;</span><br><span class="line">			a[<span class="number">5</span>][j]++;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>上面代码中定义了一个二维数组，数组中元素的类型为 long long ，元素大小为 8 字节。所以一个 cache line 可以存放 <code>64 ÷ 8 = 8</code> 个元素。一组是 8 路，所以一组可以存放 <code>8 × 8 = 64</code> 个元素。一路包含 64 个  cache line，因为前面计算出缓存的组数为 64，所以一路可以存放 <code>8 × 64 = 512</code> 个元素。</p>
+<p>代码中的第一层循环是执行次数，第二层循环是以 512 为间隔访问元素，即每次访问都会落在同一个组内的不同 cache line ，因为一组有 8 路，所以我们迭代到 <code>512 × 8 = 4096</code> 的位置。这样可以使同一组刚好可以容纳二层循环需要的地址空间。</p>
+<p>第三步，当我们将第二层循环的迭代次数扩大一倍，也就是 8192 时，<strong>虽然运算量增加了一倍，但运行时间却增加了 6 倍，相当于性能劣化三倍</strong>。劣化的根本原因就是当 i &gt; 4096 时，也就是访问 4096 之后的元素，同一组 cache line 已经全部使用，必须进行替换，并且之后的每次访问都会发生冲突，导致缓存块频繁替换，性能劣化严重。</p>
+<h4 id="3-1-4-伪共享"><a href="#3-1-4-伪共享" class="headerlink" title="3.1.4 伪共享"></a>3.1.4 伪共享</h4><p>伪共享（false-sharing）的意思是说，<strong>当两个线程同时各自修改两个相邻的变量，由于缓存是按缓存块来组织的，当一个线程对一个缓存块执行写操作时，必须使其他线程含有对应数据的缓存块无效。这样两个线程都会同时使对方的缓存块无效，导致性能下降</strong>。</p>
+<p>补充：cache line 大小为 64 字节</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;pthread.h&gt;</span></span></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">S</span>&#123;</span><br><span class="line">	<span class="type">long</span> <span class="type">long</span> a;</span><br><span class="line">	<span class="type">long</span> <span class="type">long</span> b;</span><br><span class="line">&#125; s;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> *<span class="title">thread1</span><span class="params">(<span class="type">void</span> *args)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>;i &lt; <span class="number">100000000</span>; i++)&#123;</span><br><span class="line">		s.a++;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> *<span class="title">thread2</span><span class="params">(<span class="type">void</span> *args)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>;i &lt; <span class="number">100000000</span>; i++)&#123;</span><br><span class="line">		s.b++;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">(<span class="type">int</span> argc, <span class="type">char</span> *argv[])</span> </span>&#123;</span><br><span class="line">	<span class="type">pthread_t</span> t1, t2;</span><br><span class="line">	s.a = <span class="number">0</span>;</span><br><span class="line">	s.b = <span class="number">0</span>;</span><br><span class="line">	<span class="built_in">pthread_create</span>(&amp;t1, <span class="literal">NULL</span>, thread1, <span class="literal">NULL</span>);</span><br><span class="line">	<span class="built_in">pthread_create</span>(&amp;t2, <span class="literal">NULL</span>, thread2, <span class="literal">NULL</span>);</span><br><span class="line">    <span class="built_in">pthread_join</span>(t1, <span class="literal">NULL</span>);</span><br><span class="line">	<span class="built_in">pthread_join</span>(t2, <span class="literal">NULL</span>);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;a = %lld, b = %lld\n&quot;</span>, s.a, s.b);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在这个例子中，main 函数中创建了两个线程，分别修改结构体 S 中的 a 、b 变量。a 、b均为 long long 类型，都占 8 字节，所以 a 、b 在同一个 cache line 中，因此会发生为伪共享的情况。</p>
+<p><strong>解决伪共享的办法是，将 a 、b 不要放在同一个 cache line，这样两个线程分别操作不同的 cache line 不会相互影响。</strong>具体来讲，我们需要对结构体 S 做出如下修改：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">S</span>&#123;</span><br><span class="line">	<span class="type">long</span> <span class="type">long</span> a;</span><br><span class="line">	<span class="type">long</span> <span class="type">long</span> nop_0;</span><br><span class="line">	<span class="type">long</span> <span class="type">long</span> nop_1;</span><br><span class="line">	<span class="type">long</span> <span class="type">long</span> nop_2;</span><br><span class="line">	<span class="type">long</span> <span class="type">long</span> nop_3;</span><br><span class="line">	<span class="type">long</span> <span class="type">long</span> nop_4;</span><br><span class="line">	<span class="type">long</span> <span class="type">long</span> nop_5;</span><br><span class="line">	<span class="type">long</span> <span class="type">long</span> nop_6;</span><br><span class="line">	<span class="type">long</span> <span class="type">long</span> nop_7;</span><br><span class="line">	<span class="type">long</span> <span class="type">long</span> b;</span><br><span class="line">&#125; s;</span><br></pre></td></tr></table></figure>
+
+<p>在这个结果中，你可以看到，性能有一倍的提升。</p>
+<p>其实，伪共享是一种典型的缓存缺失问题，在并发场景中很常见。<strong>在 Java 的并发库里经常会看到为了解决伪共享而进行的数据填充。这是大家在写并发程序时也要加以注意的</strong>。</p>
+<p><em><strong><u>多线程如果有写操作，要注意伪共享问题。</u></strong></em></p>
+<h3 id="3-2-MESI协议：多核CPU是如何同步高速缓存的？"><a href="#3-2-MESI协议：多核CPU是如何同步高速缓存的？" class="headerlink" title="3.2 MESI协议：多核CPU是如何同步高速缓存的？"></a>3.2 <strong>MESI协议：多核CPU是如何同步高速缓存的？</strong></h3><p>缓存一致性问题的产生主要是因为在多核体系结构中，如果有一个 CPU 修改了内存中的某个值，那么必须有一种机制保证其他 CPU 能够观察到这个修改。于是，人们设计了 协议来规定一个 CPU 对缓存数据的修改，如何同步到另一个 CPU。</p>
+<p>今天我们就来介绍在多核体系结构下，如何解决缓存一致性问题。另外，按照从简单到困难的顺序，我还会介绍最简单的 VI 协议和比较完善的 MESI 协议。学习完这节课后，你就知道缓存一致性问题是如何被解决的，还会了解到如何设计协议对缓存一致性进行管理。</p>
+<p>在缓存一致性的问题中，因为 CPU 修改自己的缓存策略至关重要，所以我们就从缓存的写策略开始讲起。</p>
+<h4 id="3-2-1-缓存写策略"><a href="#3-2-1-缓存写策略" class="headerlink" title="3.2.1 缓存写策略"></a>3.2.1 <strong>缓存写策略</strong></h4><p>在高速缓存的设计中，有一个重要的问题就是：当 CPU 修改了缓存中的数据后，这些修改什么时候能传播到主存？解决这个问题有两种策略：<strong>写回（Write Back）和写直达（Write Through）</strong>。</p>
+<p>当 CPU 采取<strong>写回</strong>策略时，对缓存的修改不会立刻传播到主存，只有当缓存块被替换时，这些被修改的缓存块，才会写回并覆盖内存中过时的数据；当 CPU 采取<strong>写直达</strong>策略时，缓存中任何一个字节的修改，都会立刻传播到内存，这种做法就像穿透了缓存一样，所以用英文单词“Through”来命名。</p>
+<h2 id="4-自动内存管理篇"><a href="#4-自动内存管理篇" class="headerlink" title="4 自动内存管理篇"></a>4 自动内存管理篇</h2><h3 id="4-1-Java内存模型：Java的volatile有什么用？"><a href="#4-1-Java内存模型：Java的volatile有什么用？" class="headerlink" title="4.1 Java内存模型：Java的volatile有什么用？"></a>4.1 Java内存模型：Java的volatile有什么用？</h3>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://nannaer.github.io/2023/04/20/%E5%86%85%E5%AD%98/" data-id="clgtkfwov0002qkv7a6s089kz" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2023/04/17/%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/04/">April 2023</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/04/20/%E5%86%85%E5%AD%98/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/04/17/%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/04/15/linuxPL/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2023 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
