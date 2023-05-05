@@ -26,8 +26,17 @@
 <meta property="og:image" content="https://yygh-testosscjf.oss-cn-beijing.aliyuncs.com/9.png">
 <meta property="og:image" content="https://yygh-testosscjf.oss-cn-beijing.aliyuncs.com/10.png">
 <meta property="og:image" content="https://yygh-testosscjf.oss-cn-beijing.aliyuncs.com/11.png">
+<meta property="og:image" content="https://yygh-testosscjf.oss-cn-beijing.aliyuncs.com/12.png">
+<meta property="og:image" content="https://yygh-testosscjf.oss-cn-beijing.aliyuncs.com/13.png">
+<meta property="og:image" content="https://yygh-testosscjf.oss-cn-beijing.aliyuncs.com/14.png">
+<meta property="og:image" content="https://yygh-testosscjf.oss-cn-beijing.aliyuncs.com/15.png">
+<meta property="og:image" content="https://yygh-testosscjf.oss-cn-beijing.aliyuncs.com/16.png">
+<meta property="og:image" content="https://yygh-testosscjf.oss-cn-beijing.aliyuncs.com/17.png">
+<meta property="og:image" content="https://yygh-testosscjf.oss-cn-beijing.aliyuncs.com/18.png">
+<meta property="og:image" content="https://yygh-testosscjf.oss-cn-beijing.aliyuncs.com/19.png">
+<meta property="og:image" content="https://yygh-testosscjf.oss-cn-beijing.aliyuncs.com/w0.png">
 <meta property="article:published_time" content="2023-04-20T11:47:25.576Z">
-<meta property="article:modified_time" content="2023-04-23T15:28:17.849Z">
+<meta property="article:modified_time" content="2023-04-24T11:39:41.400Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://yygh-testosscjf.oss-cn-beijing.aliyuncs.com/1.png">
@@ -328,16 +337,143 @@
 <p>在这个结果中，你可以看到，性能有一倍的提升。</p>
 <p>其实，伪共享是一种典型的缓存缺失问题，在并发场景中很常见。<strong>在 Java 的并发库里经常会看到为了解决伪共享而进行的数据填充。这是大家在写并发程序时也要加以注意的</strong>。</p>
 <p><em><strong><u>多线程如果有写操作，要注意伪共享问题。</u></strong></em></p>
-<h3 id="3-2-MESI协议：多核CPU是如何同步高速缓存的？"><a href="#3-2-MESI协议：多核CPU是如何同步高速缓存的？" class="headerlink" title="3.2 MESI协议：多核CPU是如何同步高速缓存的？"></a>3.2 <strong>MESI协议：多核CPU是如何同步高速缓存的？</strong></h3><p>缓存一致性问题的产生主要是因为在多核体系结构中，如果有一个 CPU 修改了内存中的某个值，那么必须有一种机制保证其他 CPU 能够观察到这个修改。于是，人们设计了 协议来规定一个 CPU 对缓存数据的修改，如何同步到另一个 CPU。</p>
-<p>今天我们就来介绍在多核体系结构下，如何解决缓存一致性问题。另外，按照从简单到困难的顺序，我还会介绍最简单的 VI 协议和比较完善的 MESI 协议。学习完这节课后，你就知道缓存一致性问题是如何被解决的，还会了解到如何设计协议对缓存一致性进行管理。</p>
+<h3 id="3-2-MESI协议：多核CPU是如何同步高速缓存的？"><a href="#3-2-MESI协议：多核CPU是如何同步高速缓存的？" class="headerlink" title="3.2 MESI协议：多核CPU是如何同步高速缓存的？"></a>3.2 <strong><code>MESI</code>协议：多核CPU是如何同步高速缓存的？</strong></h3><p>缓存一致性问题的产生主要是因为在多核体系结构中，如果有一个 CPU 修改了内存中的某个值，那么必须有一种机制保证其他 CPU 能够观察到这个修改。于是，人们设计了 协议来规定一个 CPU 对缓存数据的修改，如何同步到另一个 CPU。</p>
+<p>今天我们就来介绍在多核体系结构下，如何解决缓存一致性问题。另外，按照从简单到困难的顺序，我还会介绍最简单的 VI 协议和比较完善的 <code>MESI</code> 协议。学习完这节课后，你就知道缓存一致性问题是如何被解决的，还会了解到如何设计协议对缓存一致性进行管理。</p>
 <p>在缓存一致性的问题中，因为 CPU 修改自己的缓存策略至关重要，所以我们就从缓存的写策略开始讲起。</p>
 <h4 id="3-2-1-缓存写策略"><a href="#3-2-1-缓存写策略" class="headerlink" title="3.2.1 缓存写策略"></a>3.2.1 <strong>缓存写策略</strong></h4><p>在高速缓存的设计中，有一个重要的问题就是：当 CPU 修改了缓存中的数据后，这些修改什么时候能传播到主存？解决这个问题有两种策略：<strong>写回（Write Back）和写直达（Write Through）</strong>。</p>
-<p>当 CPU 采取<strong>写回</strong>策略时，对缓存的修改不会立刻传播到主存，只有当缓存块被替换时，这些被修改的缓存块，才会写回并覆盖内存中过时的数据；当 CPU 采取<strong>写直达</strong>策略时，缓存中任何一个字节的修改，都会立刻传播到内存，这种做法就像穿透了缓存一样，所以用英文单词“Through”来命名。</p>
-<h2 id="4-自动内存管理篇"><a href="#4-自动内存管理篇" class="headerlink" title="4 自动内存管理篇"></a>4 自动内存管理篇</h2><h3 id="4-1-Java内存模型：Java的volatile有什么用？"><a href="#4-1-Java内存模型：Java的volatile有什么用？" class="headerlink" title="4.1 Java内存模型：Java的volatile有什么用？"></a>4.1 Java内存模型：Java的volatile有什么用？</h3>
+<p>当 CPU 采取<strong>写回</strong>策略时，<strong>对缓存的修改不会立刻传播到主存，只有当缓存块被替换时，这些被修改的缓存块，才会写回并覆盖内存中过时的数据</strong>；当 CPU 采取<strong>写直达</strong>策略时，<strong>缓存中任何一个字节的修改，都会立刻传播到内存</strong>，这种做法就像穿透了缓存一样，所以用英文单词“Through”来命名。</p>
+<p>同时，当某个 CPU 的缓存中执行写操作，修改其中的某个值时，其他 CPU 的缓存所保有该数据副本的更新策略也有两种：<strong>写更新（Write Update）和写无效（Write Invalidate）</strong>。</p>
+<p>如果 CPU 采取<strong>写更新</strong>策略，<strong>每次它的缓存写入新的值，该 CPU 都必须发起一次总线请求，通知其他 CPU 将它们的缓存值更新为刚写入的值，所以写更新会很占用总线带宽</strong>。如果一个 CPU 缓存执行了写操作，其他 CPU 需要多次读这个被写过的数据时，那么写更新的效率就会变得很高，因为写操作执行之后马上更新其他缓存中的副本，所以可以使其他处理器立刻获得最新的值。</p>
+<p>如果在一个 CPU 修改缓存时，<strong>将其他 CPU 中的缓存全部设置为无效，这种策略叫做写无效</strong>。这意味着，当其他 CPU 再次访问该缓存副本时，会发现这一部分缓存已经失效，此时CPU 就会从内存中重新载入最新的数据。</p>
+<p>在具体的实现中，绝大多数 CPU 都会采用写无效策略。这是因为多次写操作只需要发起一次总线事件即可，第一次写已经将其他缓存的值置为无效，之后的写不必再更新状态，这样可以有效地节省 CPU 核间总线带宽。基于这个原因，我们这节课也只讨论写无效策略。</p>
+<p>另一个方面是，当前要写入的数据不在缓存中时，<strong>根据是否要先将数据加载到缓存中</strong>，写策略又分为两种：<strong>写分配（Write Allocate）和写不分配（Not Write Allocate）</strong>。</p>
+<p><strong>在写入数据前将数据读入缓存，这是写分配策略</strong>。当缓存块中的数据在未来读写概率较高，也就是程序空间局部性较好时，写分配的效率较好；<strong>在写入数据时，直接将要写入的数据传播内存，而并不将数据块读入缓存，这是写不分配策略</strong>。当数据块中的数据在未来使用的概率较低时，写不分配性能较好。</p>
+<p><strong>从缓存和内存的更新关系看，写策略分为写回和写直达；从写缓存时 CPU 之间的更新策略来看，写策略分为写更新和写无效；从写缓存时数据是否被加载来看，写策略又分为写分配和写不分配。</strong></p>
+<h4 id="3-2-2-缓存一致性问题"><a href="#3-2-2-缓存一致性问题" class="headerlink" title="3.2.2 缓存一致性问题"></a>3.2.2 <strong>缓存一致性问题</strong></h4><p>为了保证缓存一致性，必须解决两个问题，分别是<strong>写传播和事务串行化</strong>。</p>
+<p><strong>写传播</strong>是指，一个处理器对缓存中的值进行了修改，需要通知其他处理器，也就是需要用到“<strong>写更新</strong>”或者“<strong>写无效</strong>”策略。</p>
+<p><strong>事务串行化</strong>是指，多个处理器对同一个值进行修改，在同一时刻只能有一个处理器写成功，必须保证写操作的原子性，<strong>多个写操作必须串行执行</strong>。我们将会在下节课对事务串行化进行介绍，这节课只重点关注写传播。</p>
+<p>那<strong>怎样解决写传播所带来的缓存一致性问题呢</strong>？那就需要缓存一致性协议，前面提到缓存中的值同步给主存有两种策略（写回和写直达），而且，不同的写策略，对应不同的缓存一致性协议。所以，接下来我们分别介绍<strong>基于写直达和写回的缓存一致性协议。</strong></p>
+<p><strong>基于“写直达”的缓存一致性协议</strong></p>
+<p>接下来我们介绍下基于“写回”策略的缓存一致性协议，它也被称为 <code>MESI</code> 协议。</p>
+<h4 id="3-2-3-MESI-协议"><a href="#3-2-3-MESI-协议" class="headerlink" title="3.2.3 MESI 协议"></a>3.2.3 <strong><code>MESI</code></strong> <strong>协议</strong></h4><p>同基于“写直达”的缓存一致性协议一样，我们先来了解 <code>MESI</code> 协议中，处理器对缓存的请求:</p>
+<ol>
+<li>**<code>PrRd</code>**：处理器请求从缓存块中读出；</li>
+<li>**<code>PrWr</code>**：处理器请求向缓存块写入。</li>
+</ol>
+<p>缓存块的状态分为 4 种，也是 <code>MESI</code> 协议名字的由来：</p>
+<ol>
+<li><strong>Modified（M）：缓存块有效，但是是“脏”的，其数据与主存中的原始数据不同，同时还表示处理器对于该缓存块的唯一所有权，表示数据只在这个处理器的缓存上是有效的</strong>；</li>
+<li><strong>Exclusive（E）：缓存块是干净有效且唯一的</strong>；</li>
+<li><strong>Shared（S）：缓存块是有效且干净的，有多个处理器持有相同的缓存副本</strong>；</li>
+<li><strong>Invalid（I）：缓存块无效</strong>。</li>
+</ol>
+<p><strong><code>MESI</code> 协议通过引入了 Modified 和 Exclusive 两种状态，并且引入了处理器缓存之间可以相互同步的机制，非常有效地降低了 CPU 核间带宽。它是当前设计中进行CPU 核间通讯的主流协议，被广泛地使用在各种 CPU 中</strong>。</p>
+<p><em><strong><u>更多详见<code>PPT</code></u></strong></em></p>
+<h4 id="3-2-3-小结"><a href="#3-2-3-小结" class="headerlink" title="3.2.3 小结"></a>3.2.3 小结</h4><p><strong>缓存一致性协议是个约定，具体实现上实际是由硬件电路保证的，虽然我们在写程序时可能没有涉及这方面的知识，但是作为一个资深程序员，了解其背后的原理是非常有必要的</strong>。</p>
+<p>思考题：怎样设计一个缓存系统？</p>
+<p>第一个方面，回答在系统中使用缓存的作用。</p>
+<p>第二个方面，根据<code>MESI</code>协议的实现自己设计一个类似的分布式系统同步机制。</p>
+<h3 id="3-3-内存模型：有了MESI为什么还需要内存屏障？"><a href="#3-3-内存模型：有了MESI为什么还需要内存屏障？" class="headerlink" title="3.3 内存模型：有了MESI为什么还需要内存屏障？"></a>3.3 <strong>内存模型：有了<code>MESI</code>为什么还需要内存屏障？</strong></h3><p>我们了解到，<code>MESI</code> 协议能够解决多核 CPU 体系中，多个 CPU 之间缓存数据不一致的问题。但是，如果 CPU 严格按照 <code>MESI</code> 协议进行核间通 讯和同步，核间同步就会给 CPU 带来性能问题。既要遵守协议，又要提升性能，这就对 CPU 的设计人员提出了巨大的挑战。</p>
+<h4 id="3-3-1-严守-MESI-协议的-CPU会有啥问题？"><a href="#3-3-1-严守-MESI-协议的-CPU会有啥问题？" class="headerlink" title="3.3.1 严守 MESI 协议的 CPU会有啥问题？"></a>3.3.1 <strong>严守</strong> <strong><code>MESI</code></strong> <strong>协议的</strong> <strong>CPU会有啥问题？</strong></h4><p>我们上节课说过，<code>MESI</code> 代表的是 Modified、Exclusive、Shared、Invalid 这四种缓存状态，遵守 <code>MESI</code> 协议的 CPU 缓存会在这四种状态之间相互切换。这种 CPU 缓存之间的关系是这样的：</p>
+<p><img src="https://yygh-testosscjf.oss-cn-beijing.aliyuncs.com/12.png" alt="12"></p>
+<p>从上面这张图你可以看到，Cache 和主内存 (Memory) 是直接相连的。一个 CPU 的所有写操作都会按照真实的执行顺序同步到主存和其他 CPU 的 cache 中。</p>
+<p>严格遵守 <code>MESI</code> 协议的 CPU 设计，在它的某一个核在写一块缓存时，它需要通知所有的同伴：我要写这块缓存了，如果你们谁有这块缓存的副本，请把它置成 Invalid 状态。Invalid 状态意味着该缓存失效，如果其他 CPU 再访问这一缓存区时，就会从主存中加载正确的值。</p>
+<p><strong>发起写请求的 CPU 中的缓存状态可能是 Exclusive、Modified 和 Share，每个状态下的处理是不一样的。</strong></p>
+<p>这个过程相对于直接在核内缓存里修改缓存内容，非常漫长。这也就会导致，某个核请求独占时间比较长。那怎么来解决这个问题呢？</p>
+<h4 id="3-3-2-写缓冲和写屏障"><a href="#3-3-2-写缓冲和写屏障" class="headerlink" title="3.3.2 写缓冲和写屏障"></a>3.3.2 写缓冲和写屏障</h4><p>CPU 的设计者为每个核都添加了一个名为 <strong>store buffer</strong> 的结构，store buffer 是硬件实现的缓冲区，它的读写速度比缓存的速度更快，所有面向缓存的写操作都会先经过 store buffer。</p>
+<p>不过，由于中文材料中经常将 <code>cache</code> 和 <code>buffer</code> 都翻译成缓冲，或者缓存，很容易混淆概念，所以在这里，我想<strong>强调一下 <code>cache</code> 和 <code>buffer</code> 的区别</strong>。</p>
+<p>cache 这个词，往往意味着它所存储的信息是副本。cache 中的数据即使丢失了，也可以从内存中找到原始数据（不考虑脏数据的情况），<strong>cache 存在的意义是加速查找</strong>。</p>
+<p><strong>但是 buffer 更像是蓄水池</strong>，你可以理解成它是一个收作业的课代表，<strong>课代表会把所有同学的作业都收集齐以后再一次性地交到老师那里。buffer 中的数据没有副本，一旦丢失就彻底丢失了</strong>。store buffer 也是同样的道理，它会收集多次写操作，然后在合适的时机进行提交。</p>
+<p>增加了 store buffer 以后的 CPU 缓存结构是这样的：</p>
+<p><img src="https://yygh-testosscjf.oss-cn-beijing.aliyuncs.com/13.png" alt="13"></p>
+<p>在这样的结构里，如果 CPU 的某个核再要对一个变量进行赋值，它就不必等到所有的同伴 都确认完，而是直接把新的值放入 store buffer，然后再由 store buffer 慢慢地去做核间 同步，并且将新的值刷入到 cache 中去就好了。而且，每个核的 store buffer 都是私有 的，其他核不可见。</p>
+<p>为了让你更好理解核间同步的问题，我们现在来举个例子。我们使用两个 <code>CPU</code>，分别叫做 <code>CPU0</code> 和 <code>CPU1</code>，其中 <code>CPU0</code> 负责写数据，而 <code>CPU1</code> 负责读数据，我们看看在增加了 <code>store buffer</code> 这个结构以后，它们在进行核间同步时会遇到什么问题。</p>
+<p>假如 <code>CPU0</code> 刚刚更新了变量 a 的值，并且将它放到了 store buffer 中，<code>CPU0</code> 自己接着又要读取 a 的值，此时，它会在自己的 store buffer 中读到正确的值。</p>
+<p>那如果在这一次修改的 a 值被写入 cache 之前，<code>CPU0</code> 又一次对 a 值进行了修改呢？那也没问题，这次更新就可以直接写入 store buffer。<strong>因为 store buffer 是 <code>CPU0</code> 私有的，修改它不涉及任何核间同步和缓存一致性问题，所以效率也得到了比较大的提升</strong>。</p>
+<p>但用 store buffer 也会有一个问题，那就是<strong>它并不能保证变量写入缓存和主存的顺序</strong>，你先来看看下面这个代码：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// CPU0</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">foo</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	a = <span class="number">1</span>;</span><br><span class="line">	b = <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// CPU1</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">bar</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">while</span> (b == <span class="number">0</span>) <span class="keyword">continue</span>;</span><br><span class="line">	<span class="built_in">assert</span>(a == <span class="number">1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>你可以看到，在这个代码块中，<code>CPU0</code> 执行 <code>foo</code> 函数，<code>CPU1</code> 执行 <code>bar</code> 函数。但在对变量 a 和 b 进行赋值的时候，有两种情况会导致它们的赋值顺序被打乱。</p>
+<p><strong>第一种情况是 CPU 的乱序执行</strong>。在 Cache 的基本原理一课中，我们已经讲过 CPU 为了提升运行效率和提高缓存命中率，采用了乱序执行。</p>
+<p><strong>第二种情况是 store buffer 在写入时，有可能 b 所对应的缓存行会先于 a 所对应的缓存行进入独占状态，也就是说 b 会先写入缓存。</strong></p>
+<p>我们再举一个更极端的例子分析一下：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// CPU0</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">foo</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	a = <span class="number">1</span>;</span><br><span class="line">	b = a;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这个例子中，b 和 a 之间因为有数据依赖，是不可能乱序执行的，这就意味着上面我们分析的情况一是不会发生的。但由于 store buffer 的存在，情况二仍然可能发生，其结果就像我们上面分析的那样，CPU 执行第 10 行时会失败。这会让人感到更加匪夷所思。</p>
+<p>为了解决这个问题，CPU 设计者就引入了<strong>内存屏障，屏障的作用是前边的读写操作未完成的情况下，后面的读写操作不能发生</strong>。</p>
+<p>所以说，内存屏障保证了，其他 CPU 能观察到 <code>CPU0</code> 按照我们期望的顺序更新变量。</p>
+<p>好了，到这里你可能也发现了，我们前面说的都是 CPU 核间同步的“写”的问题，但是核间同步还有另外一个瓶颈，也就是“读”的问题。那这个又要怎么解决呢？我们现在就来看看。</p>
+<h4 id="3-3-3-失效队列与读屏障"><a href="#3-3-3-失效队列与读屏障" class="headerlink" title="3.3.3 失效队列与读屏障"></a>3.3.3 <strong>失效队列与读屏障</strong></h4><p>我们前面说过，当一个 CPU 向同伴发出 Invalid 消息的时候，它的同伴要先把自己的缓存置为 Invalid，然后再发出 acknowledgement。这个从“把缓存置为 Invalid”到“发出acknowledgement”的过程所需要的时间也是比较长的。</p>
+<p>而且，由于 store buffer 的存在提升了写入速度，那么 invalid 消息确认速度相比起来就慢了，这就带来了速度的不匹配，很容易导致 store buffer 的内容还没有及时更新到cache 里，自己的容量就被撑爆了，从而失去了加速的作用。</p>
+<p>为了解决这个问题，CPU 设计者又引入了<strong>“invalid queue”</strong>，也就是失效队列这个结构。加入了这个结构后，收到 Invalid 消息的 CPU，比如我们称它为 <code>CPU1</code>，在收到Invalid 消息时立即向 <code>CPU0</code> 发回确认消息，但这个时候 <code>CPU1</code> 并没有把自己的 cache 由 Share 置为 Invalid，而是把这个失效的消息放到一个队列中，等到空闲的时候再去处理失效消息，这个队列就是 invalid queue。</p>
+<p>经过这样的改进后，<code>CPU1</code> 响应失效消息的速度大大提升了，带有 invalid queue 的缓存结构是这样的：</p>
+<p><img src="https://yygh-testosscjf.oss-cn-beijing.aliyuncs.com/14.png" alt="14"></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// CPU0</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">foo</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	a = <span class="number">1</span>;</span><br><span class="line">	<span class="built_in">smp_mb</span>();</span><br><span class="line">	b = <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// CPU1</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">bar</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">while</span> (b == <span class="number">0</span>) <span class="keyword">continue</span>;</span><br><span class="line">	<span class="built_in">smp_mb</span>();</span><br><span class="line">	<span class="built_in">assert</span>(a == <span class="number">1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>但是由于 a 的 Invalid 消息还在 invalid queue 里，没有被及时处理，<code>CPU1</code> 还是会 使用自己的 Cache 中的 a 的原来的值，也就是 0，这就出错了。</p>
+<p>解决的方法和写屏障的思路是一样的，我们需要引入一个内存屏障，它会让 CPU 暂停执 行，直到它处理完 invalid queue 中的失效消息之后，CPU 才会重新开始执行。</p>
+<h4 id="3-3-4-读写屏障分离"><a href="#3-3-4-读写屏障分离" class="headerlink" title="3.3.4 读写屏障分离"></a>3.3.4 <strong>读写屏障分离</strong></h4><p>分离的写屏障和读屏障的出现，是为了<strong>更加精细地控制 store buffer 和 invalid queue</strong></p>
+<p><strong>的顺序</strong>。</p>
+<p>再具体一点，写屏障的作用是让屏障前后的写操作都不能翻过屏障。也就是说，写屏障之前的写操作一定会比之后的写操作先写到缓存中。</p>
+<p>读屏障的作用也是类似的，就是保证屏障前后的读操作都不能翻过屏障。假如屏障的前后都有缓存失效的信息，那屏障之前的失效信息一定会优先处理，也就意味着变量的新值一定会被优先更新。</p>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1hR4y1F72V?p=3&vd_source=8d95bce80b0cec3f93d598666a44aa2d">缓存一致性协议与伪共享</a></p>
+<h3 id="3-4-NUMA：非均匀访存带来了哪些提升与挑战？"><a href="#3-4-NUMA：非均匀访存带来了哪些提升与挑战？" class="headerlink" title="3.4 NUMA：非均匀访存带来了哪些提升与挑战？"></a>3.4 <strong><code>NUMA</code>：非均匀访存带来了哪些提升与挑战？</strong></h3><p>我们讲到物理内存就是指主存，这句话是不太精确的，其实大型服务器的物理内存是由很多部分组成的，主要包含<strong>外设所使用的内存和主存</strong>。</p>
+<p>这节课，我们先会对计算机是如何组织外设所使用的内存进行分析，因为这是你了解设备驱动开发的基础；接下来，我们将分析主存，不过在展开之前，你还是需要了解一下它的内部结构，才能更好的理解。</p>
+<p>如果你从 CPU 的角度去看，就会发现物理内存并不是平坦的，而是坑坑洼洼的。正是因为这样的特点，也就导致 CPU 对物理内存的访问速度也不一样。同时，有些内存可以使用CPU Cache，有些则不可以。我们把这种组织方式称为<strong>异质（Heterogeneity）式</strong>的结构。</p>
+<p>再往深入拆解，在异质式结构中，CPU 不仅仅对外设内存和主存的访问速度不一样，它访问主存不同区间的速度也不一样。换句话说，<strong>不同的 CPU 访问不同地址主存的速度各不相同</strong>，我们把采用这种设计的内存叫做非一致性访存（Non-uniform memory access，<code>NUMA</code>）。</p>
+<p>通常，在进行应用程序内存管理时，正确使用 <code>NUMA</code> 可以极大地提升应用程序的吞吐量；相应地，如果 <code>NUMA</code> 的配置不合理，也有可能带来比较大的负面影响。而且，<strong>在多核体系结构的服务器上，合理地通过控制 <code>NUMA</code> 的绑定，来提升应用程序的性能，对于服务端程序员至关重要。</strong>为了帮助你合理运用 <code>NUMA</code>，今天这节课，我们就来详细分析 <code>NUMA</code> 会为应用程序带来哪些提升与挑战。</p>
+<h4 id="3-4-1-再论物理内存"><a href="#3-4-1-再论物理内存" class="headerlink" title="3.4.1 再论物理内存"></a>3.4.1 <strong>再论物理内存</strong></h4><p><strong>外设所需要的内存主要包括外设的工作内存、<code>DMA</code> 区域和用于 IO 映射的内存</strong>。</p>
+<p>CPU 与外设进行交互主要有两种手段，分别是 <strong>IO 端口 (IO Port) 和 IO 内存映射 （Memory Mapped IO， <code>MMIO</code>）</strong>。IO 端口是最基本的手段，在 ISA 设备上就在应 用，它使用 in/out 等专属指令对外设的寄存器进行操作：设置、读取状态，以及控制数据 传输。但是 IO 端口不适合进行大规模的数据传输，所以 <code>PCI</code> 设备主要还是通过 <code>MMIO</code> 进 行数据通讯。</p>
+<p><strong>IO 端口主要用于状态读取和设置等控制命令的通讯，而 IO 内存映射主要用于大量的数据传输</strong>。</p>
+<h4 id="3-4-2-NUMA"><a href="#3-4-2-NUMA" class="headerlink" title="3.4.2 NUMA"></a>3.4.2 <strong><code>NUMA</code></strong></h4><p>在多核服务器上，主存也并不是一段平坦的同质的内存。为了加速性能，人们发明了<strong>非一致性内存访问</strong>（Non-uniform memory access，<code>NUMA</code>），与之对应的是<strong>一致性内存访问</strong>（Uniform Memory Access， <code>UMA</code>）。</p>
+<p>这里的一致性是指，<strong>同一个 CPU 对所有内存的访问的速度是一样的，因为物理内存是连续且集中的</strong>。</p>
+<p>而非一致性是指，<strong>内存在物理上被分为了多个节点 node，CPU 可以访问所有节点，但是为了提升访问效率，CPU 可以有选择地优先访问离自己近的内存节点</strong>。所以在多核处理器上，CPU 也根据内存节点划分成多个组，每个组里的 CPU 访问同一个内存节点的效率是相同的。当然了，任何一个 CPU 都可以访问全部的内存节点，只不过因为“距离”远近的关系，访问效率不一样。</p>
+<p>回顾历史，一致性内存访问（下称 <code>UMA</code>）发展的时间很长，但是随着多核技术的发展，<code>UMA</code> 存在的问题和面临的挑战越来越明显。</p>
+<p><strong>因为 <code>UMA</code> 是基于总线的，CPU 需要先经过前端总线（Front Side Bus，<code>FSB</code>）连接到北桥，然后北桥再连接到内存控制器进行内存访问</strong>。如下图所示：</p>
+<p><img src="https://yygh-testosscjf.oss-cn-beijing.aliyuncs.com/15.png" alt="15"></p>
+<p>随着处理器核数的增多，<code>UMA</code> 面临的挑战主要包括两个方面：</p>
+<p>1.<strong>总线的带宽压力会越来越大，同时每个节点可用带宽会减少</strong>；</p>
+<p>2.<strong>总线的长度也会因此而增加，进而增加访问延迟</strong>。</p>
+<p>为了解决以上两个问题，**<code>NUMA</code> 架构逐渐成为主流**。如果一个 CPU 要访问远程节点的内存，则先通过 <code>QPI</code> 到达远程节点 CPU 的内存控制器，然后再进行数据传输。</p>
+<p><img src="https://yygh-testosscjf.oss-cn-beijing.aliyuncs.com/16.png" alt="16"></p>
+<p>如上图所示，连接到 <code>CPU1</code> 的内存控制器的内存被认为是本地内存。连接到另一个 CPU 插槽 (<code>CPU2</code>) 的内存被视为 <code>CPU1</code> 的外部或远程内存。远程内存访问比本地内存访问有额外的延迟开销，因为它必须<strong>遍历互连</strong>（点对点链接）并连接到远程内存控制器。由于两者内存位置不同，访问方式也不同，因此这种系统会经历“不均匀”的内存访问时间。</p>
+<p><code>UMA</code> 架构的优点很明显就是结构简单，所有的 CPU 访问内存都是一致的，都必须经过总线。然而它缺点我们再前面也提到了，就是随着处理器核数的增多，总线的带宽压力会越来越大。解决办法就只能扩宽总线，然而成本十分高昂，未来可能仍然面临带宽压力。<strong>而<code>NUMA</code> 在扩展时只需要关注 CPU 之间的连接，不占用总线带宽，自然就成为现代处理器的选择</strong>。</p>
+<h4 id="3-4-3-正确使用NUMA"><a href="#3-4-3-正确使用NUMA" class="headerlink" title="3.4.3 正确使用NUMA"></a>3.4.3 <strong>正确使用<code>NUMA</code></strong></h4><p>在开始实验之前，建议你找到一台服务器，因为个人电脑一般是不带 <code>NUMA</code> 的。首先我们可以使用 <code>numactl -H</code> 命令，这个命令可以查看到机器上有多少个 <code>NUMA</code> 节点、每个节点包括哪些处理器核，以及不同节点之间访问速度的差异。</p>
+<p><code>numactl</code> 工具还有一个重要的功能，那就是“绑核”。这个功能可以指定可执行程序运行在哪些 CPU 上，同时也可以指定程序在哪些内存节点进行内存分配。</p>
+<p>绑核的意思就是<strong>将进程的运行环境和特定的 CPU 组，内存节点捆绑在一起</strong>。实际应用中，我们可以根据自身需求，调整绑核策略，来提升应用程序的性能。</p>
+<p>实验的结果你可以自己找一台 <code>NUMA</code> 服务器测试。最终你会发现<strong>绑在相同核上的程序运行得更快</strong>，这是因为我们这个示例需要的内存比较少，也就 4 个 G，是远小于当前机器单个节点的容量（<code>128G</code>）的，因此访问本地内存完全能满足应用的需求，本地内存的速度我们前面提到是大于远程访问的，所以运行的也就越快。</p>
+<h4 id="3-4-4-NUMA内存策略"><a href="#3-4-4-NUMA内存策略" class="headerlink" title="3.4.4 NUMA内存策略"></a>3.4.4 <strong><code>NUMA</code>内存策略</strong></h4><p>所谓内存策略就是 CPU 访问内存节点的策略，分为<strong>先访问本地节点、先访问远程节点、只能访问本地节点</strong>等等。内存策略是 <code>libnuma</code> 提供的最主要的功能。现在实现的内存策略主要有 4 种，如下表所示：</p>
+<p><img src="https://yygh-testosscjf.oss-cn-beijing.aliyuncs.com/17.png" alt="17"></p>
+<p>在前些年，<code>MySQL</code> 会经常发现这样一个问题，就是<strong>明明操作系统还有很多内存，但是 <code>MySQL</code> 的性能在某个时间点会急剧下降，但只要关闭 <code>NUMA</code> 问题就可以得到解决</strong>。</p>
+<p>背后的原因就是和 <code>NUMA</code> 的内存策略有关，<code>linux</code> 系统有这样一个参数zone_reclaim_mode，它的作用是当本地节点内存空间不足时，决定如何回收内存，当它的值非 0 时，系统将先从当前节点回收内存，然后再进行分配。<strong>它的取值状态如下</strong>：</p>
+<ol>
+<li>0：在回收本地内存之前，在其他内存节点分配内存；</li>
+<li>1：清理当前节点不用的页，然后在本地节点分配内存；</li>
+<li>2：将缓存中的脏页写到磁盘，释放部分内存；</li>
+<li>4：进行 swap 替换，释放内存。</li>
+</ol>
+<p>而在出现问题的机器上通过查看 <code>/proc/sys/vm/zone_reclaim_mode</code>，结果是 0（默认也是 0），也就是说当本地节点内存不足时，会从其他节点分配内存，看似没什么问题。但是实际上，即便<code>/proc/sys/vm/zone_reclaim_mode</code> 为 0，问题依然存在。这是怎么一回事呢？这里我就直接贴出当时 <code>linux</code> 内核的部分代码，你就明白了。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">static void __paginginit init_zone_allows_reclaim(int nid)</span><br><span class="line">&#123;</span><br><span class="line">	int i;</span><br><span class="line">	for_each_node_state(i, N_MEMORY)</span><br><span class="line">		if (node_distance(nid, i) &lt;= RECLAIM_DISTANCE)</span><br><span class="line">			node_set(i, NODE_DATA(nid)-&gt;reclaim_nodes);</span><br><span class="line">		else</span><br><span class="line">			zone_reclaim_mode = 1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>代码的第 5 行是根据 node_distance 来判断系统是否支持 <code>NUMA</code>（操作系统层面不涉及<code>libnuma</code> 的 <code>API</code>），如果有 node_distance 大于 RECLAIM_DISTANCE（简单理解就是系统开启了 <code>NUMA</code>）则将 zone_reclaim_mode 的状态置 1，这个地方是写死的，所以即便修改了 <code>/proc/sys/vm/zone_reclaim_mode</code>，实际生效的 zone_reclaim_mode 还是 1，这样就导致大量的内存分配必须在本地节点。而<strong>本地节点的内存已经满了，势必导致频繁 swap，性能也因此骤降，所以这个问题也被称为“ swap insanity ”</strong>。</p>
+<h2 id="4-自动内存管理篇"><a href="#4-自动内存管理篇" class="headerlink" title="4 自动内存管理篇"></a>4 自动内存管理篇</h2><h3 id="4-1-Java内存模型：Java的volatile有什么用？"><a href="#4-1-Java内存模型：Java的volatile有什么用？" class="headerlink" title="4.1 Java内存模型：Java的volatile有什么用？"></a>4.1 Java内存模型：Java的volatile有什么用？</h3><h4 id="4-1-1-Java内存模型"><a href="#4-1-1-Java内存模型" class="headerlink" title="4.1.1 Java内存模型"></a>4.1.1 <strong>Java内存模型</strong></h4><p><strong>内存模型是用来描述编程语言在支持多线程编程中，对共享内存访问的顺序</strong>。</p>
+<p>在 <code>JSR133</code> 文档中，这个内存模型有一个专门的名字，叫 <strong>Happens-before</strong>。</p>
+<h4 id="4-1-2-Happens-before模型"><a href="#4-1-2-Happens-before模型" class="headerlink" title="4.1.2 Happens-before模型"></a>4.1.2 <strong>Happens-before模型</strong></h4><p>Java 内存模型（Java Memory Model， <code>JMM</code>）是通过各种操作来定义的，包括对变量的读写操作、加锁和释放锁，以及线程的启动和等待操作。<code>JMM</code> 为程序中的动作定义了一种先后关系，这些关系被称为 Happens-Before 关系。<strong>要想保证操作 B 可以看到操作 A 的结果，A 和 B 就必须满足 Happens-Before 关系</strong>，这个结论与 A 和 B 是否在同一线程中执行无关。</p>
+<p>我们先来看 Happens-Before 的规则，然后再对它的特点进行分析。我们要明确 <code>Happens-Before</code> 模型所讨论的都是同步动作，包括加锁、解锁、读写 volatile 变量、线程启动和线程完成等。下面这几条规则中所说的操作都是指同步动作。见下面的表格：</p>
+<p><img src="https://yygh-testosscjf.oss-cn-beijing.aliyuncs.com/18.png" alt="18"></p>
+<p>Happens-Before 模型强调的是同步动作的先后关系，对于非同步动作，就没有任何的限制了。这节课的第一个例子，它里面的读写操作都是非同步动作，所以它在不同的体系结构上运行，会得到不同的结果。但这并不违反 <code>JMM</code> 的规定。</p>
+<p>你要牢记一点的是，**<code>JMM</code> 是一种理论上的内存模型，并不是真实存在的。它是以具体的CPU 的内存模型为基础的**。可能我这么说，你还是觉得比较抽象，现在，我们来看 <code>JSR133</code> 文档中的两个令人费解的例子，你就能理解了。</p>
+<p>（1）控制流依赖的例子</p>
+<p><img src="https://yygh-testosscjf.oss-cn-beijing.aliyuncs.com/19.png" alt="19"></p>
+<p>（2）数据流依赖的例子</p>
+<p><img src="https://yygh-testosscjf.oss-cn-beijing.aliyuncs.com/w0.png" alt="w0"></p>
+<p>从实用的角度，我建议你在理解<code>JMM</code>时，一定要结合具体的CPU体系结构。大体上讲，<code>JMM</code>加上每一种体系结构都有的控制流依赖和数据流依赖，才是一种比较实用的内存模型。纯粹的<code>JMM</code>本身的实用性不强。</p>
+<p><em><strong><u>后续<code>JVM</code>相关知识点在<code>JVM</code>章节整理，暂时跳过</u></strong></em></p>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://nannaer.github.io/2023/04/20/%E5%86%85%E5%AD%98/" data-id="clgtkfwov0002qkv7a6s089kz" class="article-share-link">Share</a>
+      <a data-url="https://nannaer.github.io/2023/04/20/%E5%86%85%E5%AD%98/" data-id="clhaexqgv0003dwv7gpnhgv83" class="article-share-link">Share</a>
       
       
     </footer>
@@ -345,6 +481,15 @@
   
     
 <nav id="article-nav">
+  
+    <a href="/2023/04/24/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B%E5%AE%9E%E6%88%98/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
   
   
     <a href="/2023/04/17/%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F/" id="article-nav-older" class="article-nav-link-wrap">
@@ -386,6 +531,14 @@
       <ul>
         
           <li>
+            <a href="/2023/04/27/TCP/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/04/24/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B%E5%AE%9E%E6%88%98/">(no title)</a>
+          </li>
+        
+          <li>
             <a href="/2023/04/20/%E5%86%85%E5%AD%98/">(no title)</a>
           </li>
         
@@ -394,7 +547,7 @@
           </li>
         
           <li>
-            <a href="/2023/04/15/linuxPL/">(no title)</a>
+            <a href="/2023/04/15/JUC/">(no title)</a>
           </li>
         
       </ul>
